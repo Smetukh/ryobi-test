@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "FuturaPT-Bold";
+  src: url(../src/fonts/FuturaPT-Bold.woff2) format("woff2"),
+    url(../src/fonts//FuturaPT-Bold.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPT-Medium";
+  src: url(../src/fonts/FuturaPT-Medium.woff2) format("woff2"),
+    url(../src/fonts/FuturaPT-Medium.woff) format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPTCond-ExtraBold";
+  src: url(../src/fonts/FuturaPTCond-ExtraBold.woff2) format("woff2"),
+    url(../src/fonts/FuturaPTCond-ExtraBold.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPT-Book";
+  src: url(../src/fonts/FuturaPT-Book.woff2) format("woff2"),
+    url(../src/fonts/FuturaPT-Book.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPTCond-Medium";
+  src: url(../src/fonts/FuturaPTCond-Medium.woff2) format("woff2"),
+    url(../src/fonts/FuturaPTCond-Medium.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPT-Demi";
+  src: url(../src/fonts/FuturaPT-Demi.woff2) format("woff2"),
+    url(../src/fonts/FuturaPT-Demi.woff) format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPT-ExtraBold";
+  src: url(../src/fonts/FuturaPT-ExtraBold.woff2) format("woff2"),
+    url(../src/fonts/FuturaPT-ExtraBold.woff) format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPT-Light";
+  src: url(../src/fonts/FuturaPT-Light.woff2) format("woff2"),
+    url(../src/fonts/FuturaPT-Light.woff) format("woff");
+  font-weight: 700;
+  font-style: normal;
+}

@@ -1,0 +1,1012 @@
+/*****  Global Style START  *****/
+@font-face {
+  font-family: "FuturaPT-Bold";
+  src: url(../src/fonts/FuturaPT-Bold.woff2) format("woff2"),
+    url(../src/fonts//FuturaPT-Bold.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPT-Medium";
+  src: url(../src/fonts/FuturaPT-Medium.woff2) format("woff2"),
+    url(../src/fonts/FuturaPT-Medium.woff) format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPTCond-ExtraBold";
+  src: url(../src/fonts/FuturaPTCond-ExtraBold.woff2) format("woff2"),
+    url(../src/fonts/FuturaPTCond-ExtraBold.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPT-Book";
+  src: url(../src/fonts/FuturaPT-Book.woff2) format("woff2"),
+    url(../src/fonts/FuturaPT-Book.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPTCond-Medium";
+  src: url(../src/fonts/FuturaPTCond-Medium.woff2) format("woff2"),
+    url(../src/fonts/FuturaPTCond-Medium.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPT-Demi";
+  src: url(../src/fonts/FuturaPT-Demi.woff2) format("woff2"),
+    url(../src/fonts/FuturaPT-Demi.woff) format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPT-ExtraBold";
+  src: url(../src/fonts/FuturaPT-ExtraBold.woff2) format("woff2"),
+    url(../src/fonts/FuturaPT-ExtraBold.woff) format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPT-Light";
+  src: url(../src/fonts/FuturaPT-Light.woff2) format("woff2"),
+    url(../src/fonts/FuturaPT-Light.woff) format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  line-height: 1.5;
+  letter-spacing: 0.06rem;
+  font-family: "FuturaPT-Medium";
+  margin: 0;
+}
+p {
+  margin: 0;
+  font-family: "FuturaPT-Medium";
+  font-weight: 400;
+  color: #2d2926;
+  font-size: 15px;
+}
+a {
+  text-decoration: none !important;
+}
+body {
+  background-color: #f3f3f3;
+  font-family: "FuturaPT-Medium";
+  height: 100%;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  outline: none !important;
+}
+:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.main_wrapper {
+  padding: 40px 0;
+}
+/*****  Global Style  End*****/
+
+/***** Top header Start*****/
+.App-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.App-header img {
+  max-width: 25%;
+}
+.App-header h1 {
+  font-size: 35px;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin: 0 0 0 20px;
+  font-family: "FuturaPT-Bold";
+  letter-spacing: 0.5px;
+  line-height: normal;
+}
+
+.MuiTabs-root {
+  margin-top: 11px;
+}
+/***** Top header END*****/
+
+/**combine class start***/
+.player_area,
+.configurator_area {
+  background-color: #fff;
+}
+/**combine class End***/
+
+/***** player_area STARt *****/
+.player_area {
+  min-height: 600px;
+  height: 100%;
+  position: relative;
+}
+
+.row > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom_player_area {
+  background-color: #1d1c1c;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.share_div .share-button {
+  color: #e1e723;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.hover:hover {
+  color: #50b0f4;
+}
+.buy_btn button[disabled],
+.buy_btn button[disabled]:hover {
+  background-color: gray;
+  color: initial;
+}
+
+.buy_btn .button {
+  background-color: #e1e723;
+  color: #000;
+  padding: 7px 50px;
+  border-radius: 5px;
+  border: 0;
+  text-transform: uppercase;
+  font-family: "FuturaPT-Demi";
+}
+
+.buy_btn .button:hover {
+  background-color: #50b0f4;
+  color: #fff;
+}
+
+.delete_icon {
+  position: absolute;
+  background-color: red;
+  border-radius: 5px;
+  padding: 5px 11px;
+  color: #fff;
+  right: 30px;
+  top: 20px;
+}
+
+button.issue_dialog {
+  margin: 25px;
+  background-color: #e1e723;
+  color: #000;
+  padding: 7px 20px;
+  border-radius: 5px;
+  border: 1px solid currentColor;
+  text-transform: uppercase;
+  font-family: "FuturaPT-Demi";
+}
+
+/***** player_area End *****/
+
+/*****onfigurator_area Start *****/
+
+.configurator_area .nav-tabs,
+.configurator_area .card,
+.configurator_area .card-header {
+  border: none;
+}
+.configurator_area {
+  height: 100%;
+}
+
+.configurator_area .card-header {
+  background-color: #f3f3f3;
+  padding: 0;
+}
+
+/*CORE TABS START css*/
+
+.configurator_area .MuiBox-root,
+.configurator_area .MuiBox-root {
+  background-color: #fff;
+  padding: 20px 0 !important;
+}
+.reset svg,
+.share_div svg {
+  margin-right: 6px;
+}
+
+.prduct_name svg {
+  color: #818181;
+  transform: rotate(-180deg);
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.configurator_area .MuiTab-root {
+  font-size: 17px;
+  color: #a7a7a7;
+  text-transform: uppercase;
+  font-family: "FuturaPT-Demi";
+  padding: 0 2rem 0 3.5rem;
+  min-height: auto;
+}
+
+.configurator_area .MuiTab-wrapper svg {
+  margin-right: 10px;
+}
+
+.top-single-img {
+  max-width: 150px;
+}
+
+.MuiTab-wrapper {
+  display: block !important;
+}
+
+.MuiTab-textColorPrimary.Mui-selected {
+  color: #000 !important;
+}
+
+.PrivateTabIndicator-colorPrimary-2 {
+  background-color: #000 !important;
+  height: 5px !important;
+}
+
+.MuiTabs-indicator {
+  background-color: #000 !important;
+  height: 5px !important;
+}
+
+.MuiTabs-flexContainer {
+  justify-content: space-between;
+}
+
+.tab-col2-inner label {
+  font-family: "FuturaPT-Medium";
+}
+.thumbnails {
+  overflow: hidden !important;
+}
+
+.configurator_area .MuiTab-root.mobile_build {
+  background-image: url(../src/assets/mobile-light.png);
+}
+
+.configurator_area .MuiTab-root.wall_build {
+  background-image: url(../src/assets/wall-light.png);
+}
+
+.configurator_area .MuiTab-root.wall_build,
+.configurator_area .MuiTab-root.mobile_build {
+  background-size: 26px;
+  background-position: 20px 0px;
+  background-repeat: no-repeat;
+}
+
+.MuiTab-textColorPrimary.mobile_build.Mui-selected {
+  background-image: url(../src/assets/mobile-dark.png);
+}
+
+.MuiTab-textColorPrimary.wall_build.Mui-selected {
+  background-image: url(../src/assets/wall-dark.png);
+}
+
+/*CORE TABS END css*/
+
+/*custom Wide and Tall area css*/
+.tab-sec {
+  position: relative;
+  border-bottom: 2px solid #eeee;
+  padding: 0 12px 10px;
+  overflow: hidden;
+}
+.tab-col1 {
+  width: 25%;
+  float: left;
+  text-align: left;
+}
+.tab-col2 {
+  width: 60%;
+  float: right;
+  display: flex;
+  align-items: center;
+}
+.tab-col2 .tab-col2-inner:nth-child(1) {
+  width: 45%;
+  float: left;
+}
+.tab-col2 .tab-col2-inner:nth-child(2) {
+  width: 10%;
+  float: left;
+}
+.tab-col2 .tab-col2-inner:nth-child(3) {
+  width: 45%;
+  float: right;
+}
+.tab-col2 .tab-col2-inner:nth-child(1) select,
+.tab-col2 .tab-col2-inner:nth-child(3) select {
+  width: 50px;
+  display: inline-block;
+  margin-right: 5px;
+  border: 2px solid #ced4da;
+  border-radius: 8px;
+}
+/*custom Wide and Tall area css END*/
+
+.font-size-small {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #8f8f8f;
+  font-family: "FuturaPT-Demi";
+}
+.border-add {
+  border-bottom: 1px dashed #ccc;
+  padding: 15px 0;
+  margin: 0;
+}
+.products_area {
+  padding: 0px 13px 13px;
+  min-height: 380px;
+  max-height: 470px;
+  overflow: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+/* width */
+.products_area::-webkit-scrollbar {
+  width: 6px;
+}
+/* Track */
+.products_area::-webkit-scrollbar-track {
+  background: #dedede;
+  border-radius: 50px;
+}
+/* Handle */
+.products_area::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 50px;
+}
+.products_area {
+  scrollbar-width: thin;
+  scrollbar-color: #000000 #dedede;
+}
+
+.base-mobile-item-container {
+  padding: 0;
+  max-width: 140px;
+  margin: auto;
+  text-align: center;
+  display: block;
+  position: relative;
+}
+
+.base-mobile-item-overlay {
+  padding: 0;
+  top: -1px;
+  left: -11px;
+  max-width: 160px;
+}
+
+.base-mobile-item-overlay img {
+  padding: 0 10px;
+  max-width: 160px !important;
+}
+
+.base-wall-item-overlay {
+  top: -31px;
+  left: 1px;
+}
+
+.base-wall-item-overlay img {
+  padding: 10px 10px 10px;
+  max-width: 170px;
+}
+
+.base-item-overlay {
+  position: absolute;
+  z-index: 2;
+  border: 1px solid #eee;
+  background: white;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.base-item-overlay:hover,
+.base-item-overlay:hover .prduct_name,
+.base-item-overlay:hover .plus-add {
+  opacity: 1;
+}
+
+.item-block-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background: white;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-small;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.product_info {
+  border: 2px solid transparent;
+  transition: ease-in-out 0.2s;
+  position: relative;
+  cursor: pointer;
+}
+.prduct_name h6 {
+  color: #797878;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: normal;
+  padding: 3px;
+  font-family: "FuturaPT-Demi";
+  transition: ease-in-out 0.2s;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-flow: wrap;
+}
+.product_info:hover {
+  border: 2px solid #eee;
+}
+.prduct_name {
+  width: 100%;
+  background: #e1e723;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+.prduct_name:hover {
+  background: #f8fe40;
+}
+.product_info img {
+  object-fit: contain;
+  height: 100px;
+}
+.products_area .col-sm-4 {
+  margin: 10px 0 0px;
+}
+.plus-add {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+}
+.plus-add svg {
+  fill: #d1d1d1;
+}
+.product_info:hover .prduct_name,
+.product_info:hover .plus-add {
+  opacity: 1;
+}
+.prduct_name i {
+  color: #818181;
+  transform: rotate(-180deg);
+  font-size: 16px;
+  padding: 0 0 0 10px;
+}
+.reset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #c6c6c6;
+  padding: 20px 0 0;
+}
+
+/*****TAB2 Start*******/
+.top_product_area img {
+  max-width: 140px;
+  margin: auto;
+  text-align: center;
+  display: block;
+}
+.dashed_border-bottom {
+  border-bottom: 1px dashed #ccc;
+  padding: 0 0 20px 0;
+}
+.dashed_border-top {
+  border-top: 1px dashed #ccc;
+}
+/*****TAB2 END*******/
+.mobile_close_icon {
+  display: block;
+  position: absolute;
+  top: -20px;
+  right: 0;
+  background: #1d1c1c;
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  color: #fff;
+  display: none;
+}
+.mobile_close_icon.close_icon_added {
+  display: none;
+}
+.align-center {
+  align-items: center;
+}
+/*****onfigurator_area End *****/
+
+/***********Modal style start*******/
+
+/**common modal-headers start**/
+.modal-headers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e3e3e3;
+  padding: 0 0 10px;
+}
+.modal-headers .modal-title,
+.prdouct-title {
+  color: #000;
+  font-family: "FuturaPT-Demi";
+  text-transform: uppercase;
+  font-size: 19px;
+}
+.modal-headers .close-modal {
+  cursor: pointer;
+}
+.MuiDialog-paper {
+  max-width: 800px !important;
+  width: 100%;
+  padding: 20px;
+}
+.button-style {
+  background: rgba(34, 34, 34, 0.95);
+  padding: 8px 20px 8px;
+  border: 1px solid #e1e723;
+  box-shadow: 0 0 0 rgb(225 231 35 / 0%);
+  color: #e1e723;
+  font-weight: 500;
+  border-radius: 10px;
+  font-size: 14px;
+  margin: 0 10px 0 0;
+  font-family: "FuturaPT-Demi";
+  text-transform: uppercase;
+}
+.button-style:hover {
+  /* background: #474747; */
+  background: rgba(34, 34, 34, 0.95);
+  color: #50b0f4;
+  cursor: pointer;
+  border: 1px solid #50b0f4;
+}
+.button-style-inverted {
+  color: rgba(32, 31, 31, 0.95);
+  background: #e1e723;
+  border: 1px solid rgba(34, 34, 34, 0.95);
+}
+.button-style-inverted:hover {
+  background: #50b0f4;
+  color: #fff;
+  cursor: pointer;
+}
+/* width */
+.css-ypiqx9-MuiDialogContent-root::-webkit-scrollbar {
+  width: 6px !important;
+}
+/* Track */
+.css-ypiqx9-MuiDialogContent-root::-webkit-scrollbar-track {
+  background: #dedede !important;
+  border-radius: 50px;
+}
+/* Handle */
+.css-ypiqx9-MuiDialogContent-root::-webkit-scrollbar-thumb {
+  background: #000000 !important;
+  border-radius: 50px;
+}
+.css-ypiqx9-MuiDialogContent-root {
+  scrollbar-width: thin !important;
+  scrollbar-color: #000000 #dedede;
+}
+/**common modal-headers END**/
+
+/**Issue Modal start**/
+.dialog_content h5 {
+  color: #919191;
+  font-size: 17px;
+  margin: 2px 0 16px 0;
+  font-family: "FuturaPT-Demi";
+}
+.dialog_content p {
+  font-size: 14px;
+  color: #777;
+}
+/**Issue Modal END**/
+
+/**Share Modal START**/
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  padding: 8px;
+  width: 70%;
+  font-family: "FuturaPT-Book";
+  letter-spacing: 0.2px;
+  color: #474747;
+}
+.form-inline button {
+  width: 25%;
+  height: 100%;
+}
+.download_area {
+  padding: 10px 0 0 0;
+  border-top: 1px solid #e3e3e3;
+  margin: 15px 0 0 0;
+}
+/**Share Modal END**/
+
+/**Buy Modal Start**/
+.rows {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+}
+.column-two strong {
+  font-size: 17px;
+  color: #888;
+  display: block;
+  font-family: "FuturaPT-Bold";
+}
+.column-two h4 {
+  font-size: 13px;
+  color: #9b9898;
+  font-weight: 400;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.columns p {
+  font-size: 13px;
+  color: #9b9898;
+  margin: 10px 0 0;
+}
+.columns img {
+  max-width: 120px;
+}
+.column-one {
+  width: 24%;
+  display: flex;
+  align-items: center;
+}
+.column-two {
+  width: 50%;
+}
+.column-three {
+  width: 25%;
+}
+.full-buttons a.button-style {
+  display: block;
+  margin: 0 0 10px 0;
+  padding: 6px 10px 6px;
+  text-align: center;
+  font-size: 14px;
+}
+/**Buy Modal END**/
+
+/**Item Modal START**/
+
+.left_side {
+  float: left;
+  width: 50%;
+}
+.right_side {
+  float: right;
+  width: 50%;
+  padding: 0 0 0 40px;
+}
+.inner-modal-item strong {
+  color: #000;
+  text-transform: uppercase;
+}
+.inner-modal-item {
+  width: 100%;
+}
+#thumbnail-div .thumbnail {
+  border: #a9a9ab solid 1px;
+  height: 40px;
+  object-fit: cover;
+}
+.carousel_area .active-thumbnail {
+  border: #476ff1 solid 1px !important;
+}
+
+.Item-full-buttons {
+  margin: 20px 0;
+}
+.Item-inner-buttons .button-style {
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+.Item-inner-buttons .button-style:last-child {
+  margin: 0;
+}
+.Item-full-buttons .fa-plus {
+  position: absolute;
+  left: 14px;
+  top: 7px;
+}
+
+.Item-full-buttons .button-style {
+  position: relative;
+}
+
+.inner-modal-item ul {
+  padding-left: 20px;
+}
+
+.inner-modal-item ul li {
+  color: #777;
+  font-size: 14px;
+  margin: 5px 0 0 0;
+}
+
+.prev,
+.next {
+  padding: 6px !important;
+  background: #2d2d2d;
+  border-radius: 50px !important;
+  width: 32px !important;
+  color: #e1e723;
+  font-size: 13px !important;
+}
+
+.carousel-image {
+  object-fit: contain !important;
+}
+
+.carousel-item.fade {
+  opacity: 1 !important;
+}
+/**Item Modal END**/
+
+/***********Modal style END**********/
+
+/*****RESPONSIVE*****/
+@media (min-width: 1200px) {
+  .custom-container {
+    max-width: 1420px !important;
+  }
+}
+
+/***max-width: 1024px***/
+@media only screen and (max-width: 1024px) {
+  .prduct_name svg {
+    margin-right: 0px;
+  }
+}
+/***max-width: 1024px***/
+
+/***max-width: 991px***/
+@media only screen and (max-width: 991px) {
+  /****Top Header Start***/
+  .App-header img {
+    max-width: 25%;
+  }
+  .App-header h1 {
+    font-size: 30px;
+  }
+  /****Top Header End***/
+
+  .mobile_style {
+    margin-top: 30px;
+  }
+
+  .prduct_name svg {
+    margin-right: 5px;
+  }
+}
+/***max-width: 991px***/
+
+/***max-width: 767px***/
+@media (max-width: 767.5px) {
+  .main_wrapper {
+    padding: 40px 0 0;
+    height: 100%;
+  }
+  /****Top Header Start***/
+  .App-header img {
+    max-width: 45%;
+  }
+  .App-header {
+    display: block;
+    text-align: center;
+  }
+  .App-header h1 {
+    font-size: 19px;
+    margin: 10px 30px 0 30px;
+  }
+  /****Top Header END***/
+  .configurator_area .card-header {
+    padding: 10px 0 0;
+    background-color: #d3d3d3;
+  }
+}
+/***max-width: 767px***/
+
+/***max-width: 600px***/
+@media (max-width: 600.5px) {
+  .main_wrapper {
+    padding: 40px 0 0;
+    height: 100%;
+  }
+  /****Top Header Start***/
+  .mobile_close_icon.close_icon_added {
+    display: block;
+  }
+  /**Cllopes mobile start***/
+  .mobile_style {
+    margin: 0px 0 0 0;
+  }
+  .player_area {
+    margin-bottom: 60px;
+  }
+  .mobile_style {
+    position: absolute;
+    bottom: calc(20% - 100px);
+  }
+  .margin_removed {
+    margin: 0;
+  }
+  .mobile_bulder {
+    padding: 20px 0 20px 0;
+  }
+  .card-body-content {
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: all 0.2s;
+  }
+  .full-height {
+    height: auto;
+  }
+  .tab-content {
+    max-height: 500px;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  .products_area {
+    padding: 40px 0 13px;
+    min-height: unset;
+    max-height: unset;
+    overflow: unset;
+    overflow-y: unset;
+  }
+
+  .item-block-overlay {
+    max-height: unset;
+  }
+
+  .tab-sec {
+    padding: 10px 10px 10px;
+    margin: 0;
+  }
+  .tab-col2 {
+    width: 70%;
+  }
+  .reset {
+    padding: 20px 0 20px;
+  }
+
+  .configurator_area .MuiTab-root {
+    padding: 0 1rem 0 1rem;
+  }
+  /**Cllopes mobile End***/
+
+  .configurator_area .MuiBox-root,
+  .configurator_area .MuiBox-root {
+    padding: 0px !important;
+    max-height: 500px;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  .configurator_area .MuiTab-root.wall_build,
+  .configurator_area .MuiTab-root.mobile_build {
+    background-image: none;
+  }
+
+  /***********Modal style start*******/
+
+  /**common modal-headers start**/
+  .MuiDialog-paper {
+    padding: 0px;
+  }
+  /**common modal-headers END**/
+
+  /**Share Modal START**/
+  .form-inline input {
+    width: 100%;
+    margin: 5px 0;
+  }
+  .form-inline button {
+    width: 100%;
+    margin: 10px 0 0 0;
+  }
+  .download_area {
+    margin: 15px 0 0 0;
+  }
+  /**Share Modal END**/
+
+  /**Buy Modal Start**/
+  .rows {
+    display: block;
+  }
+  .columns img {
+    margin: auto;
+  }
+  .column-one,
+  .column-two,
+  .column-three {
+    width: 100%;
+  }
+  .full-buttons {
+    margin: 10px 0 0;
+  }
+  /**Buy Modal END**/
+
+  /**Item Modal START**/
+
+  .left_side {
+    width: 100%;
+  }
+  .right_side {
+    width: 100%;
+    padding: 20px 0 0;
+  }
+  /**Item Modal END**/
+
+  .carousel_area .prev,
+  .carousel_area .next {
+    font-size: 13px !important;
+  }
+
+  .bottom_player_area {
+    padding: 20px 20px 10px;
+  }
+
+  /***********Modal style END**********/
+}
