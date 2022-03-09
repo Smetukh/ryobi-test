@@ -670,7 +670,7 @@ export default function Ryobi() {
 
                                     <ItemModal
                                       className="addButton"
-                                      itemName={"ITEM"}
+                                      itemName={"INFO"}
                                       storeSku={rolling.storeSku}
                                       internetNumber={rolling.internetNumber}
                                       subitemName={rolling.subitemName}
