@@ -1113,6 +1113,10 @@ const AppStyles = styled.div`
 			padding: 32px 0 24px;
 		}
 
+		.infoButton {
+			background-color: #E1E1E1;
+			font-weight: bold;
+		}
 		/* .playerScroll [class*="player_area"] {
 			pointer-events: none !important;
 		} */
