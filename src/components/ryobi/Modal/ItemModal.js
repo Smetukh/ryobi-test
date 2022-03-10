@@ -6,6 +6,7 @@ import { Carousel } from "../../../vendor/react-carousel-minimal/dist";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import AddIcon from "@mui/icons-material/Add";
 import { ConfiguratorContext } from '../../../configurator/store/'
+import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 
 const captionStyle = {
   fontSize: "2em",
@@ -15,6 +16,17 @@ const slideNumberStyle = {
   fontSize: "20px",
   fontWeight: "bold",
 };
+const mobileInfoStyle = {
+  border: '2px solid black',
+  borderRadius: '50%',
+  width: '20px',
+  height: '20px',
+  display: 'flex',
+  alignItems: 'center',
+  fontSize: '17px',
+  justifyContent: 'center',
+  fontWeight: 'bold'
+}
 
 export default function ItemModal(props) {
   const [open, setOpen] = React.useState(false);
@@ -25,7 +37,7 @@ export default function ItemModal(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  const { description, className } = props;
+  const { description, className, isMobile } = props;
 
   const {
     dataStore
@@ -35,10 +47,20 @@ export default function ItemModal(props) {
   
   return (
     <>
-      <h6 variant="outlined" className={className} onClick={handleClickOpen}>
-        <ErrorOutlineIcon />
-        {props.itemName}
-      </h6>
+      {isMobile ?
+        <span variant="outlined" style={{ minHeight: '32px' }} className={className} onClick={handleClickOpen}>
+          <span style={{...mobileInfoStyle}}>!</span>
+          <span style={{ fontWeight: 'bold' }}>{props.itemName}</span>
+        </span>
+        :
+        <h6 variant="outlined" className={className} onClick={handleClickOpen}>
+          <ErrorOutlineIcon />
+          <span>{props.itemName}</span>
+        </h6>
+        
+      }
+      
+
       <Dialog className="custom-modal" open={open} onClose={handleClose} container={document.getElementById('tk--link-builder-root-styles')}>
         <DialogTitle>
           <div className="modal-headers">

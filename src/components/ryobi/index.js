@@ -387,7 +387,7 @@ export default function Ryobi() {
                                   }
                                 }><AddCircleIcon />add</div>
                                 <ItemModal
-                                  className="addButton"
+                                  className="addButton infoButton"
                                   itemName="INFO"
                                   // itemName={wall[0].itemName}
                                   storeSku={wall[0].storeSku}
@@ -398,6 +398,7 @@ export default function Ryobi() {
                                   learn={wall[0].learn}
                                   buy={wall[0].buy}
                                   addAction={async () => withWallItemAddRejection(addWallRail)}
+                                  isMobile={isMobile}
                                 />
                               </div>
                             </div>
@@ -446,7 +447,7 @@ export default function Ryobi() {
                                       }
                                     }><AddCircleIcon />add</div>
                                     <ItemModal
-                                      className="addButton"
+                                      className="addButton infoButton"
                                       itemName="INFO"
                                       storeSku={wall.storeSku}
                                       internetNumber={wall.internetNumber}
@@ -458,6 +459,7 @@ export default function Ryobi() {
                                       addAction={async () => {
                                         withWallItemAddRejection(async () => addWallItemById(wall.id))
                                       }}
+                                      isMobile={isMobile}
                                     />
                                   </div>
                                 </div>
@@ -538,7 +540,7 @@ export default function Ryobi() {
                                         <div className="cardButtons">
                                           <div className="addButton"><AddCircleIcon />add</div>
                                           <ItemModal
-                                            className="addButton"
+                                            className="addButton infoButton"
                                             itemName="INFO"
                                             // itemName={item.itemName}
                                             storeSku={item.storeSku}
@@ -549,6 +551,7 @@ export default function Ryobi() {
                                             learn={item.learn}
                                             buy={item.buy}
                                             addAction={() => withWallItemAddRejection(async () => addFromMobileToWall(item.id))}
+                                            isMobile={isMobile}
                                           />
                                         </div>
                                       </div>
@@ -610,7 +613,7 @@ export default function Ryobi() {
                                 }><AddCircleIcon />add</div>
 
                                 <ItemModal
-                                  className="addButton"
+                                  className="addButton infoButton"
                                   itemName={"INFO"}
                                   storeSku={rollingBase[0].storeSku}
                                   internetNumber={rollingBase[0].internetNumber}
@@ -620,6 +623,7 @@ export default function Ryobi() {
                                   learn={rollingBase[0].learn}
                                   buy={rollingBase[0].buy}
                                   addAction={() => withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id))}
+                                  isMobile={isMobile}
                                 />
                               </div>
                             </div>
@@ -669,7 +673,7 @@ export default function Ryobi() {
                                     }><AddCircleIcon />add</div>
 
                                     <ItemModal
-                                      className="addButton"
+                                      className="addButton infoButton"
                                       itemName={"INFO"}
                                       storeSku={rolling.storeSku}
                                       internetNumber={rolling.internetNumber}
@@ -679,6 +683,7 @@ export default function Ryobi() {
                                       learn={rolling.learn}
                                       buy={rolling.buy}
                                       addAction={() => withMobileItemAddRejection(async () => addMobileItemById(rolling.id))}
+                                      isMobile={isMobile}
                                     />
                                   </div>
 
