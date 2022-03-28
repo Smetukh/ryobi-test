@@ -3,7 +3,6 @@ import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import { Carousel } from "../../../vendor/react-carousel-minimal/dist";
-import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import AddIcon from "@mui/icons-material/Add";
 import { ConfiguratorContext } from '../../../configurator/store/'
 import InfoIcon from '@mui/icons-material/Info';
@@ -43,7 +42,7 @@ export default function ItemModal(props) {
         </span>
         :
         <h6 variant="outlined" className={className} onClick={handleClickOpen}>
-          <ErrorOutlineIcon />
+          <InfoIcon />
           <span>{props.itemName}</span>
         </h6>
         

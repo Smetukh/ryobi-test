@@ -792,7 +792,28 @@ const AppStyles = styled.div`
 
   .cardButtons {
     display: none;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+	opacity: 0;
   }
+
+  .product_info:hover .cardButtons {
+	opacity: 1;
+  }
+
+  .base-mobile-item-overlay:hover .cardButtons {
+	  opacity: 1;
+  }
+
+  .base-wall-item-overlay:hover .cardButtons {
+	  opacity: 1;
+  }
+  
+  .infoButton {
+		background-color: #E1E1E1;
+		font-weight: 900;
+	}
 
 	.modal-headers .close-modal {
 	  cursor: pointer;
@@ -1012,6 +1033,12 @@ const AppStyles = styled.div`
 	.carousel-item.fade {
 	  opacity: 1 !important;
 	}
+
+	.infoButton {
+		background-color: #E1E1E1;
+		font-weight: 900;
+		font-family: sans-serif;
+	}
 	/**Item Modal END**/
 
 	/***********Modal style END**********/
@@ -1113,10 +1140,6 @@ const AppStyles = styled.div`
 			padding: 32px 0 24px;
 		}
 
-		.infoButton {
-			background-color: #E1E1E1;
-			font-weight: bold;
-		}
 		/* .playerScroll [class*="player_area"] {
 			pointer-events: none !important;
 		} */
@@ -1178,6 +1201,7 @@ const AppStyles = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
+	  opacity: 1;
     }
 
     .add_products_btn {
