@@ -179,8 +179,6 @@ export default function Ryobi() {
     };
   });
 
-  console.log('qqq scrollY ===', scrollY);
-
   const handleCloseBar = (event, reason) => {
     if (reason === 'clickaway') {
       return;
@@ -205,9 +203,7 @@ export default function Ryobi() {
   }
 
   const scrollDownClick = (e) => {
-    console.log('qqq event ===', e);
     window.scrollTo(0, e.screenX)
-    console.log('qqq e.screenX ===', e.screenX);
   }
 
   return (
@@ -366,7 +362,7 @@ export default function Ryobi() {
                                 className="top-single-img"
                                 onClick={() => withWallItemAddRejection(addWallRail)}
                               />
-                              <div className="prduct_name">
+                              {/* <div className="prduct_name">
                                 <ItemModal
                                       itemName={wall[0].itemName}
                                       storeSku={wall[0].storeSku}
@@ -378,7 +374,7 @@ export default function Ryobi() {
                                       buy={wall[0].buy}
                                       addAction={async () => withWallItemAddRejection(addWallRail)}
                                     />
-                              </div>
+                              </div> */}
                               <div className="cardButtons">
                                 <div className="addButton" onClick={
                                   async () => {
@@ -426,7 +422,7 @@ export default function Ryobi() {
                                       setId(wall.itemName)
                                     }}
                                   />
-                                  <div className="prduct_name">
+                                  {/* <div className="prduct_name">
                                     <ItemModal
                                       itemName={wall.itemName}
                                       storeSku={wall.storeSku}
@@ -438,7 +434,7 @@ export default function Ryobi() {
                                       buy={wall.buy}
                                       addAction={async () => withWallItemAddRejection(async () => addWallItemById(wall.id))}
                                     />
-                                  </div>
+                                  </div> */}
                                   <div className="cardButtons">
                                     <div className="addButton" onClick={
                                       () => {
@@ -485,7 +481,7 @@ export default function Ryobi() {
                                     className="w-100"
                                     onClick={() => withWallItemAddRejection(async () => addFromMobileToWall(item.id))}
                                   />
-                                  <div className="prduct_name">
+                                  {/* <div className="prduct_name">
                                     <ItemModal
                                       className="addButton"
                                       itemName="INFO"
@@ -500,7 +496,7 @@ export default function Ryobi() {
                                         withWallItemAddRejection(async () => addWallItemById(wall.id))
                                       }}
                                     />
-                                  </div>
+                                  </div> */}
                                 </div>
                               </div>
                             ))}
@@ -524,7 +520,7 @@ export default function Ryobi() {
                                           className="w-100"
                                           onClick={() => withWallItemAddRejection(async () => addFromMobileToWall(item.id))}
                                         />
-                                        <div className="prduct_name">
+                                        {/* <div className="prduct_name">
                                           <ItemModal
                                             itemName={item.itemName}
                                             storeSku={item.storeSku}
@@ -536,7 +532,7 @@ export default function Ryobi() {
                                             buy={item.buy}
                                             addAction={async () => withWallItemAddRejection(async () => addFromMobileToWall(item.id))}
                                           />
-                                        </div>
+                                        </div> */}
                                         <div className="cardButtons">
                                           <div className="addButton"><AddCircleIcon />add</div>
                                           <ItemModal
@@ -590,7 +586,7 @@ export default function Ryobi() {
                                 alt="img"
                                 onClick={() => withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id))}
                               />
-                              <div className="prduct_name">
+                              {/* <div className="prduct_name">
                                 <ItemModal
                                   itemName={rollingBase[0].itemName}
                                   storeSku={rollingBase[0].storeSku}
@@ -602,7 +598,7 @@ export default function Ryobi() {
                                   buy={rollingBase[0].buy}
                                   addAction={async () => withWallItemAddRejection(async () => addWallItemById(wall.id))}
                                 />
-                              </div>
+                              </div> */}
 
                               <div className="cardButtons">
                                 <div className="addButton" onClick={
@@ -649,7 +645,7 @@ export default function Ryobi() {
                                     onClick={() => withMobileItemAddRejection(async () => addMobileItemById(rolling.id))}
                                   />
 
-                                  <div className="prduct_name">
+                                  {/* <div className="prduct_name">
                                     <ItemModal
                                       itemName={rollingBase[0].itemName}
                                       storeSku={rollingBase[0].storeSku}
@@ -661,7 +657,7 @@ export default function Ryobi() {
                                       buy={rollingBase[0].buy}
                                       addAction={async () => withWallItemAddRejection(async () => addWallItemById(wall.id))}
                                     />
-                                  </div>
+                                  </div> */}
 
                                   <div className="cardButtons">
 
@@ -710,7 +706,7 @@ export default function Ryobi() {
                                           className="w-100"
                                           onClick={() => withMobileItemAddRejection(async () => addFromWallToMobile(item.id))}
                                         />
-                                        <div className="prduct_name">
+                                        {/* <div className="prduct_name">
                                           <ItemModal
                                             itemName={item.itemName}
                                             storeSku={item.storeSku}
@@ -722,7 +718,7 @@ export default function Ryobi() {
                                             buy={item.buy}
                                             addAction={async () => withMobileItemAddRejection(async () => addFromWallToMobile(item.id))}
                                           />
-                                        </div>
+                                        </div> */}
                                       </div>
                                     </div>
                                   ))}
