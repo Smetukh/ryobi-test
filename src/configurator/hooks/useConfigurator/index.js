@@ -196,7 +196,9 @@ const useConfigurator = ({ itemsStore, playerStore, dataStore }) => {
       setWallItems([...wallItems, { itemId, nodeId, mobileAlternative: wallAssets.find(el => el.id === itemId).mobileAlternative }])
       return true
     } else {
-      return false
+      if (!(await addWallRailWrapper())) return false; // return if wall rail was not added
+      addWallItemByIdWrapper(itemId) // recursively try to add a product
+      return true
     }
   } 
 
