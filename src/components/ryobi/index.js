@@ -403,7 +403,7 @@ export default function Ryobi() {
 
                         <div className="products_area">
                           <div className="row  margin_removed" style={{ position: 'relative' }}>
-                            {!wallItems.length && <div className="item-block-overlay">Please select the Rail to get started with your Wall Build.</div>}
+                            {/* {!wallItems.length && <div className="item-block-overlay">Please select the Rail to get started with your Wall Build.</div>} */}
                             {wallBuild.map((wall, i) => (
                               <div
                                 className="col-sm-4 col-6"
