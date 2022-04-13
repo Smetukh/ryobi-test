@@ -180,30 +180,31 @@ export default function Ryobi() {
   });
 
   const handleCloseBar = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
+    if (reason === 'clickaway') return;
     setOpen(false);
   };
 
-  const onTouchStart = (e) => {
-    setTouchStart(e.changedTouches[0].pageY)
-  }
+  const onTouchStart = (e) => { setTouchStart(e.changedTouches[0].pageY) }
 
-  const onTouchMove = (e) => {
-    setMove(e.changedTouches[0].pageY - touchStart);
-  }
+  const onTouchMove = (e) => { setMove(e.changedTouches[0].pageY - touchStart); }
 
-  const isMobile = useMediaQuery({
-    query: '(max-width: 600px)'
-  })
+  const isMobile = useMediaQuery({ query: '(max-width: 600px)' })
 
-  const scrollUpClick = () => {
-    window.scrollTo(0, 0)
-  }
+  const scrollUpClick = () => { window.scrollTo(0, 0) }
 
-  const scrollDownClick = (e) => {
-    window.scrollTo(0, e.screenX)
+  const scrollDownClick = (e) => { window.scrollTo(0, e.screenX) }
+
+  const onDragStart = (event) => {
+    const data = JSON.stringify({ wallId: event.target.id });
+    event.dataTransfer.setData('data', data);
+    event.dataTransfer.setDragImage(event.target, (0.5 * event.target.clientWidth), (0.5 * event.target.clientWidth));
+  };
+
+  const onDragOver = (e) => { e.preventDefault(); }
+  
+  const onDrop = async (e) => {
+    const { wallId } = JSON.parse(e.dataTransfer.getData("data"));
+    !!wallId ? withWallItemAddRejection(async () => addWallItemById(wallId)) : withWallItemAddRejection(async () => addWallRail());    
   }
 
   return (
@@ -243,7 +244,7 @@ export default function Ryobi() {
                   </ListSubheader>
                 </>
               }
-              <div className="player_area">
+              <div className="player_area" onDrop={onDrop} onDragOver={onDragOver}>
                 {/* Configurator Area */}
                 <Player Loader={<LinearProgress />}>
                 </Player>
@@ -350,18 +351,20 @@ export default function Ryobi() {
                               src={wall[0].imageName}
                               alt="img"
                               className="top-single-img"
-                              onClick={() => withWallItemAddRejection(addWallRail)}
+                              onClick={() => { withWallItemAddRejection(addWallRail) }}
                             />
                             <div className="base-item-overlay base-wall-item-overlay" onClick={handleMobileClick}>
                               <div className="plus-add">
-                                  <AddIcon className="fa-plus" />
-                                </div>
-                              <img
-                                src={wall[0].imageName}
-                                alt="img"
-                                className="top-single-img"
-                                onClick={() => withWallItemAddRejection(addWallRail)}
-                              />
+                                <AddIcon className="fa-plus" />
+                              </div>
+                              <div onClick={() => { withWallItemAddRejection(addWallRail) }}>
+                                <img
+                                  src={wall[0].imageName}
+                                  alt="img"
+                                  className="top-single-img"
+                                  draggable='true' id={null} onDragStart={onDragStart}
+                                />
+                              </div>
                               {/* <div className="prduct_name">
                                 <ItemModal
                                       itemName={wall[0].itemName}
@@ -413,15 +416,18 @@ export default function Ryobi() {
                                   <div className="plus-add">
                                     <AddIcon className="fa-plus" />
                                   </div>
-                                  <img
-                                    src={wall.imageName}
-                                    alt="img"
-                                    className="w-100"
+                                  <div
                                     onClick={() => {
                                       withWallItemAddRejection(async () => addWallItemById(wall.id))
                                       setId(wall.itemName)
-                                    }}
-                                  />
+                                    }}>
+                                    <img
+                                      src={wall.imageName}
+                                      alt="img"
+                                      className="w-100"
+                                      draggable='true' id={wall.id} onDragStart={onDragStart}
+                                    />
+                                  </div>
                                   {/* <div className="prduct_name">
                                     <ItemModal
                                       itemName={wall.itemName}
