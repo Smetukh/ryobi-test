@@ -3,6 +3,7 @@ import BuyNowModal from "./Modal/BuyNowModal";
 import ShareModal from "./Modal/ShareModal";
 import ItemModal from "./Modal/ItemModal";
 import FoundIssueModal from "./Modal/FoundIssueModal";
+import TourModal from './Modal/TourModal';
 import ResetModal from "./Modal/ResetModal";
 import DeleteIcon from "@mui/icons-material/Delete";
 import RefreshIcon from "@mui/icons-material/Refresh";
@@ -10,6 +11,8 @@ import Header from "./header";
 import Snackbar from '@mui/material/Snackbar';
 import { useMediaQuery } from 'react-responsive'
 import ListSubheader from '@mui/material/ListSubheader';
+import "intro.js/introjs.css";
+import "./Modal/index.css";
 
 import CancelIcon from '@mui/icons-material/Cancel';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
@@ -103,7 +106,7 @@ export default function Ryobi() {
     isPlayerReady
   } = playerStore
 
-  const [notifyModal, setNotifyModal] = useState('welcome')
+  const [notifyModal, setNotifyModal] = useState('')
   // const [issueModalOpen, setIssueModalOpen] = useState(true)
 
   const withWallSizeChangeRejection = async (addHandler) => {
@@ -165,6 +168,18 @@ export default function Ryobi() {
     setOpen(true);
   };
 
+  const [enabled, setEnabled] = useState(false); 
+  useEffect(() => {
+    if (!!localStorage.getItem('showTour') && localStorage.getItem('showTour') === 'true') {
+      setNotifyModal('welcome');
+    } else if (!localStorage.getItem('showTour')) {
+      localStorage.setItem('showTour', true);
+      setNotifyModal('welcome');
+    }
+  },
+  []
+  )
+
   const scroll = () => {
     setScrollY(window.pageYOffset);
   }
@@ -209,7 +224,9 @@ export default function Ryobi() {
 
   return (
     <div onTouchStart={onTouchStart} onTouchMove={onTouchMove} move={move}>
-      <FoundIssueModal open={notifyModal === 'welcome'} setOpen={setNotifyModal} messagePayload={messages.welcome} />
+      <TourModal enabled={enabled} setEnabled={setEnabled}/>
+      {/* {!open && notifyModal === 'welcome' && <TourModal enabled={enabled} setEnabled={setEnabled} />} */}
+      <FoundIssueModal isWelcome={true} setEnabled={setEnabled} open={notifyModal === 'welcome'} setOpen={setNotifyModal} messagePayload={messages.welcome} />
       <FoundIssueModal open={notifyModal === 'noSpaceWall'} setOpen={setNotifyModal} messagePayload={messages.noSpaceWall} />
       <FoundIssueModal open={notifyModal === 'noSpaceMobile'} setOpen={setNotifyModal} messagePayload={messages.noSpaceMobile} />
       <FoundIssueModal open={notifyModal === 'destructiveWallSize'} setOpen={setNotifyModal} messagePayload={messages.destructiveWallSize} />
@@ -340,7 +357,7 @@ export default function Ryobi() {
                           </div>
                         </div>
 
-                        <div className="row border-add margin_removed align-center base-wall-mobile">
+                        <div className={`row border-add margin_removed align-center base-wall-mobile ${value === 0 ? 'top_products_intro' : ''}`}>
                           <div className="col-6">
                             <span className="d-block font-size-small">
                               Wall Base
@@ -577,7 +594,7 @@ export default function Ryobi() {
                         <CloseIcon />
                       </div> */}
                       <div className="tab-pane" id="mobile_build" role="tabpanel">
-                        <div className="top_product_area dashed_border-bottom mobile_bulder row m-0" style={{ position: 'relative' }}>
+                        <div className={`top_product_area dashed_border-bottom mobile_bulder row m-0 ${value === 1 ? 'top_products_intro' : ''}`}>
                           <h6 className="font-size-small  d-block col-sm-12 ">
                             Rolling Base
                           </h6>
@@ -633,6 +650,7 @@ export default function Ryobi() {
                         </div>
 
                         <div className="products_area pt-3">
+                          <div className="products_block">
                           <div className="row  margin_removed pb-2">
                             {!mobileItems.length && <div className="item-block-overlay">Please select the Base to get started with your Mobile Build.</div>}
                             {rollingBaseItem.map((rolling, i) => (
@@ -729,6 +747,11 @@ export default function Ryobi() {
                                     </div>
                                   ))}
                             </div>}
+                          </div>
+                        </div>
+
+                        <div onClick={() => setEnabled(true)} className="add_products_btn show_tour_btn">
+                          show tour
                         </div>
 
                         <div className="reset font-size-small" style={{ opacity: mobileItems.length ? 1 : 0.5 }}>

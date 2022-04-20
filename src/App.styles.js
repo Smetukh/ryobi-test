@@ -383,6 +383,10 @@ const AppStyles = styled.div`
     color: #e1e723;
   }
 
+  .show_tour_btn {
+	  display: block;
+  }
+
   .addButton {
     background-color: #e1e723;
     display: flex;
@@ -609,6 +613,10 @@ const AppStyles = styled.div`
 	  scrollbar-color: #000000 #dedede;
 	}
 
+	.introjs-helperLayer {
+		mix-blend-mode: overlay !important;
+	}
+
 	.base-mobile-item-container {
 	  padding: 0;
 	  max-width: 140px;
@@ -819,10 +827,22 @@ const AppStyles = styled.div`
 	  cursor: pointer;
 	}
 	.MuiDialog-paper {
-	  max-width: 800px !important;
+	  max-width: 800px;
 	  width: 100%;
 	  padding: 20px;
 	}
+
+	.dontShowBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+	}
+
+	.dontShowBlock > label {
+		margin-right: 10px;
+	}
+
 	.button-style {
 	  background: rgba(34, 34, 34, 0.95);
 	  padding: 8px 20px 8px;
