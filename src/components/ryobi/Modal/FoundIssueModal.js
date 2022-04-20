@@ -4,15 +4,24 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function FoundIssueModal({open, setOpen, messagePayload }) {
+export default function FoundIssueModal({open, setOpen, messagePayload, isWelcome, setEnabled }) {
     // const [open, setOpen] = React.useState(false);
     // const handleClickOpen = () => {
     //     setOpen(true);
     // };
 
+    const [checked, setChecked] = React.useState(false)
     const handleClose = () => {
         setOpen(false);
+        if (!!isWelcome) {
+            setEnabled(true);
+            localStorage.setItem('showTour', !checked)
+        }
     };
+
+    const onHandleChange = () => {
+        setChecked(!checked)
+    }
     
     return (
         <>
@@ -37,11 +46,15 @@ export default function FoundIssueModal({open, setOpen, messagePayload }) {
                         <h5>{messagePayload.subTitle}</h5>
                         <p>{messagePayload.body}</p>
                     </div>
-                    
+                    {!!isWelcome &&
+                        <div className="dontShowBlock">
+                            <label for="dontShow">
+                                Don`t show again
+                            </label>
+                            <input id="dontShow" type="checkbox" onChange={onHandleChange} />
+                        </div>
+                    }
                 </DialogContent>
-
-                
-
             </Dialog>
         </>
     );

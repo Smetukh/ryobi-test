@@ -1,0 +1,66 @@
+.customTooltip {
+    background-color: black !important;
+    color: #fff;
+    width: 266px;
+    text-align: center;
+}
+
+.customTooltip .introjs-arrow {
+    border-width: 10px;
+}
+
+.customTooltip .introjs-arrow.top {
+    top: -20px;
+    border-bottom-color: black;
+}
+
+.customTooltip .introjs-arrow.bottom {
+    bottom: -20px;
+    border-top-color: black;
+}
+
+.customTooltip .introjs-arrow.left {
+    left: -20px;
+    border-right-color: black;
+}
+
+.customTooltip [class*='introjs-skipbutton'] {
+    position: absolute;
+    bottom: 12px;
+    left: 111px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.customTooltip .introjs-tooltipbuttons {
+    border: none;
+}
+
+.customTooltip .introjs-tooltipbuttons a {
+    background-color: transparent;
+    color: #fff;
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+}
+
+.customTooltip .introjs-tooltiptext {
+    padding-bottom: 0;
+}
+
+.introjs-button {
+    background-color: black;
+}
+
+.dontShowBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.welcomeModal {
+    max-width: 600px !important;
+    width: 600px;
+}
