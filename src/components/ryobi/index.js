@@ -224,8 +224,7 @@ export default function Ryobi() {
 
   return (
     <div onTouchStart={onTouchStart} onTouchMove={onTouchMove} move={move}>
-      <TourModal enabled={enabled} setEnabled={setEnabled}/>
-      {/* {!open && notifyModal === 'welcome' && <TourModal enabled={enabled} setEnabled={setEnabled} />} */}
+      <TourModal enabled={enabled} setEnabled={setEnabled} tabValue={value}/>
       <FoundIssueModal isWelcome={true} setEnabled={setEnabled} open={notifyModal === 'welcome'} setOpen={setNotifyModal} messagePayload={messages.welcome} />
       <FoundIssueModal open={notifyModal === 'noSpaceWall'} setOpen={setNotifyModal} messagePayload={messages.noSpaceWall} />
       <FoundIssueModal open={notifyModal === 'noSpaceMobile'} setOpen={setNotifyModal} messagePayload={messages.noSpaceMobile} />
@@ -357,7 +356,7 @@ export default function Ryobi() {
                           </div>
                         </div>
 
-                        <div className={`row border-add margin_removed align-center base-wall-mobile ${value === 0 ? 'top_products_intro' : ''}`}>
+                        <div className='row border-add margin_removed align-center base-wall-mobile top_products_intro'>
                           <div className="col-6">
                             <span className="d-block font-size-small">
                               Wall Base
@@ -421,6 +420,7 @@ export default function Ryobi() {
                           </div>
                         </div>
 
+                        <div className="wall_products">
                         <div className="products_area">
                           <div className="row  margin_removed" style={{ position: 'relative' }}>
                             {/* {!wallItems.length && <div className="item-block-overlay">Please select the Rail to get started with your Wall Build.</div>} */}
@@ -578,6 +578,11 @@ export default function Ryobi() {
                                   ))}
                             </div>}
                         </div>
+                        </div>
+
+                        <div onClick={() => setEnabled(true)} className="add_products_btn show_tour_btn">
+                          show tour
+                        </div>
 
                         <div className="reset font-size-small" style={{ opacity: wallItems.length ? 1 : 0.5 }}>
                           <div onClick={() => wallItems.length ? setNotifyModal('resetWall') : null} style={{ cursor: wallItems.length ? 'pointer' : 'default' }}>
@@ -594,7 +599,7 @@ export default function Ryobi() {
                         <CloseIcon />
                       </div> */}
                       <div className="tab-pane" id="mobile_build" role="tabpanel">
-                        <div className={`top_product_area dashed_border-bottom mobile_bulder row m-0 ${value === 1 ? 'top_products_intro' : ''}`}>
+                        <div className='top_product_area dashed_border-bottom mobile_bulder row m-0 top_products_intro'>
                           <h6 className="font-size-small  d-block col-sm-12 ">
                             Rolling Base
                           </h6>

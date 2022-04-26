@@ -1338,6 +1338,10 @@ const AppStyles = styled.div`
 	    background-image: none;
 	  }
 
+	  .configurator_area .MuiTab-root.button_build {
+		  width: 50%
+	  }
+
 	  /***********Modal style start*******/
 
 	  /**common modal-headers start**/
