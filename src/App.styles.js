@@ -1250,7 +1250,7 @@ const AppStyles = styled.div`
 
 	.MuiSnackbar-root {
 	  display: block;
-		z-index: 4;
+	  z-index: 10000;
   }
 
 	.MuiListSubheader-root {

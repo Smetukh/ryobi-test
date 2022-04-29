@@ -170,14 +170,14 @@ export default function Ryobi() {
 
   const [enabled, setEnabled] = useState(false); 
   useEffect(() => {
-    if (!!localStorage.getItem('showTour') && localStorage.getItem('showTour') === 'true') {
+    if (!!localStorage.getItem('showTour') && localStorage.getItem('showTour') === 'true' && isPlayerReady) {
       setNotifyModal('welcome');
-    } else if (!localStorage.getItem('showTour')) {
+    } else if (!localStorage.getItem('showTour') && isPlayerReady) {
       localStorage.setItem('showTour', true);
       setNotifyModal('welcome');
     }
   },
-  []
+  [isPlayerReady]
   )
 
   const scroll = () => {
@@ -225,7 +225,7 @@ export default function Ryobi() {
   return (
     <div onTouchStart={onTouchStart} onTouchMove={onTouchMove} move={move}>
       <TourModal enabled={enabled} setEnabled={setEnabled} tabValue={value}/>
-      <FoundIssueModal isWelcome={true} setEnabled={setEnabled} open={notifyModal === 'welcome'} setOpen={setNotifyModal} messagePayload={messages.welcome} />
+      <FoundIssueModal isWelcome={true} setEnabled={setEnabled} open={notifyModal === 'welcome'} fullHeightClick={handleClick} setOpen={setNotifyModal} messagePayload={messages.welcome} isMobile={isMobile} isPlayerReady={isPlayerReady}/>
       <FoundIssueModal open={notifyModal === 'noSpaceWall'} setOpen={setNotifyModal} messagePayload={messages.noSpaceWall} />
       <FoundIssueModal open={notifyModal === 'noSpaceMobile'} setOpen={setNotifyModal} messagePayload={messages.noSpaceMobile} />
       <FoundIssueModal open={notifyModal === 'destructiveWallSize'} setOpen={setNotifyModal} messagePayload={messages.destructiveWallSize} />
@@ -236,7 +236,7 @@ export default function Ryobi() {
         <div className="container custom-container">
           <div className="row">
             <div className={isPlayerReady ? "col-lg-8": "col-lg-12"}>
-              {isMobile && <span onClick={() => scrollUpClick()} style={{ position: 'fixed', right: '0', top: '20px', zIndex: '10', visibility: scrollY < 115 ? 'hidden' : 'visible', backgroundColor: '#f3f3f3', borderRadius: '50%' }}><ArrowUpwardIcon style={{color: 'grey'}} fontSize='large'/></span>}
+              {isMobile && <span onClick={() => scrollUpClick()} style={{ position: 'fixed', right: '0', top: '60px', zIndex: '10', visibility: scrollY < 115 ? 'hidden' : 'visible', backgroundColor: '#f3f3f3', borderRadius: '50%' }}><ArrowUpwardIcon style={{color: 'grey'}} fontSize='large'/></span>}
               {isMobile && <span onClick={scrollDownClick} style={{ position: 'fixed', right: '0', bottom: '10%', zIndex: '10', backgroundColor: '#f3f3f3', borderRadius: '50%' }}><ArrowDownwardRoundedIcon style={{color: 'grey'}} fontSize='large'/></span>}
               {!isMobile && <Header />}
               {isMobile &&
@@ -252,7 +252,7 @@ export default function Ryobi() {
                       <div className="configurator_area">
                         <div className="card">
                           <div className="card-header">
-                            <CustomTabs value={value} handleChange={handleChange} a11yProps={a11yProps} handleClick={handleClick} className="mobileTabs"/>
+                            <CustomTabs value={value} handleChange={handleChange} a11yProps={a11yProps} className="mobileTabs"/>
                           </div>
                         </div>
                       </div>
