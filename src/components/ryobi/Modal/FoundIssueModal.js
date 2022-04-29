@@ -4,7 +4,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function FoundIssueModal({open, setOpen, messagePayload, isWelcome, setEnabled }) {
+export default function FoundIssueModal({open, setOpen, messagePayload, isWelcome, setEnabled, fullHeightClick, isMobile, isPlayerReady }) {
     // const [open, setOpen] = React.useState(false);
     // const handleClickOpen = () => {
     //     setOpen(true);
@@ -14,8 +14,9 @@ export default function FoundIssueModal({open, setOpen, messagePayload, isWelcom
     const handleClose = () => {
         setOpen(false);
         if (!!isWelcome) {
+            !!isMobile && fullHeightClick();
             setEnabled(true);
-            localStorage.setItem('showTour', !checked)
+            localStorage.setItem('showTour', !checked);
         }
     };
 
@@ -48,7 +49,7 @@ export default function FoundIssueModal({open, setOpen, messagePayload, isWelcom
                     </div>
                     {!!isWelcome &&
                         <div className="dontShowBlock">
-                            <label for="dontShow">
+                            <label htmlFor="dontShow">
                                 Don`t show again
                             </label>
                             <input id="dontShow" type="checkbox" onChange={onHandleChange} />

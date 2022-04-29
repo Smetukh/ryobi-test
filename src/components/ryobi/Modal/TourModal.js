@@ -16,7 +16,7 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue }) {
       position: 'right',
     },
     {
-      element: '.top_products_intro',
+      element: '.top_product_area',
       intro: 'Please select the base to get started with your mobile build',
     },
     {
@@ -76,7 +76,7 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue }) {
               position: 'right',
             },
             {
-              element: '.top_products_intro',
+              element: '.top_product_area',
               intro: 'Please select the base to get started with your mobile build',
             },
             {
@@ -111,7 +111,7 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue }) {
       onChange={(e) => setStep(e)}
       options={{
         skipLabel: 'Skip',
-        doneLabel: 'done',
+        doneLabel: 'Done',
         tooltipClass: `customTooltip`,
         buttonClass: "introjs-button",
       }}
