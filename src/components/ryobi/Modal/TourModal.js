@@ -20,7 +20,7 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue }) {
       intro: 'Please select the base to get started with your mobile build',
     },
     {
-      element: '.products_block',
+      element: '.arButton___2g-fQ',
       intro: 'When your build is ready click here to view it in your space via Augmented Reality',
       position: 'left'
     },
@@ -50,7 +50,7 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue }) {
               intro: 'Please select the base to get started with your mobile build',
             },
             {
-              element: '.products_area',
+              element: '.arButton___2g-fQ',
               intro: 'When your build is ready click here to view it in your space via Augmented Reality',
               position: 'left'
             },
@@ -80,7 +80,7 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue }) {
               intro: 'Please select the base to get started with your mobile build',
             },
             {
-              element: '.products_block',
+              element: '.arButton___2g-fQ',
               intro: 'When your build is ready click here to view it in your space via Augmented Reality',
               position: 'left'
             },
