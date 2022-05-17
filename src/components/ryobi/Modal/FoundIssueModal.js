@@ -4,7 +4,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function FoundIssueModal({open, setOpen, messagePayload, isWelcome, setEnabled, fullHeightClick, isMobile, isPlayerReady }) {
+export default function FoundIssueModal({open, setOpen, messagePayload, isWelcome, setEnabled, fullHeightClick, isMobile }) {
     // const [open, setOpen] = React.useState(false);
     // const handleClickOpen = () => {
     //     setOpen(true);
@@ -13,9 +13,10 @@ export default function FoundIssueModal({open, setOpen, messagePayload, isWelcom
     const [checked, setChecked] = React.useState(false)
     const handleClose = () => {
         setOpen(false);
-        if (!!isWelcome) {
+        if (!checked) {
             !!isMobile && fullHeightClick();
             setEnabled(true);
+        } else {
             localStorage.setItem('showTour', !checked);
         }
     };
