@@ -1,23 +1,20 @@
 import React, { useState, useEffect, useContext } from "react";
 import BuyNowModal from "./Modal/BuyNowModal";
 import ShareModal from "./Modal/ShareModal";
-import ItemModal from "./Modal/ItemModal";
 import FoundIssueModal from "./Modal/FoundIssueModal";
 import TourModal from './Modal/TourModal';
 import ResetModal from "./Modal/ResetModal";
 import DeleteIcon from "@mui/icons-material/Delete";
-import RefreshIcon from "@mui/icons-material/Refresh";
 import Header from "./header";
 import Snackbar from '@mui/material/Snackbar';
 import { useMediaQuery } from 'react-responsive'
 import ListSubheader from '@mui/material/ListSubheader';
+import Mobile from './layouts/mobile/Mobile';
 import "intro.js/introjs.css";
 import "./Modal/index.css";
 
-import CancelIcon from '@mui/icons-material/Cancel';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardRoundedIcon from '@mui/icons-material/ArrowDownwardRounded';
-import AddIcon from "@mui/icons-material/Add";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import {
   wall,
@@ -37,6 +34,7 @@ import Player from "../../configurator/components/player"
 import { ConfiguratorContext } from '../../configurator/store/'
 import { Alert } from "@mui/material";
 import CustomTabs from "./tabs/tabs";
+import Notification from "./notification/notification";
 
 const displayItems = [...wall, ...wallBuild, ...rollingBase, ...rollingBaseItem]
 
@@ -219,13 +217,39 @@ export default function Ryobi() {
   
   const onDrop = async (e) => {
     const { wallId } = JSON.parse(e.dataTransfer.getData("data"));
-    !!wallId ? withWallItemAddRejection(async () => addWallItemById(wallId)) : withWallItemAddRejection(async () => addWallRail());    
+    if (value === 0) {
+      !!wallId ? withWallItemAddRejection(async () => addWallItemById(wallId)) : withWallItemAddRejection(async () => addWallRail());
+    } else if (value === 1) {
+      !!wallId ? withMobileItemAddRejection(async () => addMobileItemById(wallId)) : withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id));
+    }
   }
+
+  const wallBuildProps = { TabPanel, value, fullHeightClass, wallSizes, withWallSizeChangeRejection, setWallWidth, setWallHeight, wallWidth,
+    wallHeight, wall, withWallItemAddRejection, addWallRail, handleMobileClick, onDragStart, setId, isMobile, wallBuild, addWallItemById, mobileInWallItems,
+    displayItems, addFromMobileToWall, setEnabled, wallItems, setNotifyModal
+  }
+
+  const mobileBuildProps = { TabPanel, value, fullHeightClass, handleMobileClick, onDragStart, setId, isMobile, setEnabled, setNotifyModal,
+    withMobileItemAddRejection, rollingBase, addMobileItemById, mobileItems, rollingBaseItem, wallInMobileItems, displayItems, addFromWallToMobile
+  }
+
+  const mobileProps = {
+    wallBuildProps,
+    mobileBuildProps,
+    closeIconClass,
+    handleMobileClick,
+    isMobile,
+    value,
+    handleChange,
+    a11yProps,
+    handleClick
+  }
+
 
   return (
     <div onTouchStart={onTouchStart} onTouchMove={onTouchMove} move={move}>
       <TourModal enabled={enabled} setEnabled={setEnabled} tabValue={value}/>
-      <FoundIssueModal setEnabled={setEnabled} open={notifyModal === 'welcome'} fullHeightClick={handleClick} setOpen={setNotifyModal} messagePayload={messages.welcome} isMobile={isMobile} isPlayerReady={isPlayerReady}/>
+      <FoundIssueModal setEnabled={setEnabled} open={notifyModal === 'welcome'} fullHeightClick={handleClick} setOpen={setNotifyModal} messagePayload={messages.welcome} isMobile={isMobile} isPlayerReady={isPlayerReady} isWelcome={true}/>
       <FoundIssueModal open={notifyModal === 'noSpaceWall'} setOpen={setNotifyModal} messagePayload={messages.noSpaceWall} />
       <FoundIssueModal open={notifyModal === 'noSpaceMobile'} setOpen={setNotifyModal} messagePayload={messages.noSpaceMobile} />
       <FoundIssueModal open={notifyModal === 'destructiveWallSize'} setOpen={setNotifyModal} messagePayload={messages.destructiveWallSize} />
@@ -241,11 +265,7 @@ export default function Ryobi() {
               {!isMobile && <Header />}
               {isMobile &&
                 <>
-                  <Snackbar open={open} autoHideDuration={1500} onClose={handleCloseBar} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
-                    <Alert severity="success" sx={{ width: '100%' }}>
-                      {id} successfuly added to your build
-                    </Alert>
-                  </Snackbar>
+                  <Notification open={open} handleCloseBar={handleCloseBar} id={id}/>
                   <Header />
                   <ListSubheader>
                     <div className="col-lg-4  mobile_style">
@@ -283,497 +303,7 @@ export default function Ryobi() {
                 </div>
               </div>}
             </div>
-
-            {isPlayerReady && <div className="col-lg-4  mobile_style">
-              <div className="configurator_area">
-                <div className="card cardMobile">
-                  <div className="card-header">
-                    <div
-                      className={"mobile_close_icon " + closeIconClass}
-                      onClick={handleMobileClick}
-                    >
-                      {/* <CloseIcon /> */}
-                      <CancelIcon fontSize="large"/>
-                    </div>
-                    {!isMobile &&
-                      <CustomTabs value={value} handleChange={handleChange} a11yProps={a11yProps} handleClick={handleClick}/>
-                    }
-                    {/* <Tabs
-                      value={value}
-                      onChange={handleChange}
-                      indicatorColor="primary"
-                      textColor="primary"
-                      variant="scrollable"
-                      scrollButtons="auto"
-                      aria-label="scrollable auto tabs example"
-                    >
-                      <Tab
-                        label="Wall Build"
-                        {...a11yProps(0)}
-                        onClick={handleClick}
-                        className="wall_build"
-                      />
-                      <Tab
-                        label="Mobile Build"
-                        {...a11yProps(1)}
-                        onClick={handleClick}
-                        className="mobile_build"
-                      />
-                    </Tabs> */}
-                    <TabPanel
-                      value={value}
-                      index={0}
-                      className={
-                        "reduce-padding card-body-content " + fullHeightClass
-                      }
-                    >
-                      <div className="tab-pane" id="wall_build" role="tabpanel">
-                        <div className="tab-sec">
-                          <div className="tab-col1">
-                            <span className="font-size-small">Wall Size</span>
-                          </div>
-                          <div className="tab-col2">
-                            <div className="tab-col2-inner">
-
-                              <select className="form-control form-control-sm" onChange={(e) => withWallSizeChangeRejection(() => setWallWidth(wallSizes.width.find(el => el.m === parseFloat(e.target.value))))} value={wallSizes.width.find(el => wallWidth === el.m).m}>
-                                {wallSizes.width.map(el =>
-                                  <option key={el.m} value={el.m}>{el.ft}'</option>
-                                )}
-                              </select>
-                              <label>Wide</label>
-                            </div>
-                            <div className="tab-col2-inner">
-                              <span>x</span>
-                            </div>
-                            <div className="tab-col2-inner">
-                              <select className="form-control form-control-sm" onChange={(e) => withWallSizeChangeRejection(() => setWallHeight(wallSizes.height.find(el => el.m === parseFloat(e.target.value))))} value={wallSizes.height.find(el => wallHeight === el.m).m}>
-                                {wallSizes.height.map(el =>
-                                  <option key={el.m} value={el.m}>{el.ft}'</option>
-                                )}
-                              </select>
-                              <label>Tall</label>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className='row border-add margin_removed align-center base-wall-mobile top_products_intro'>
-                          <div className="col-6">
-                            <span className="d-block font-size-small">
-                              Wall Base
-                            </span>
-                          </div>
-                          <div className="col-6" style={{ position: 'relative' }}>
-                            <img
-                              src={wall[0].imageName}
-                              alt="img"
-                              className="top-single-img"
-                              onClick={() => { withWallItemAddRejection(addWallRail) }}
-                            />
-                            <div className="base-item-overlay base-wall-item-overlay" onClick={handleMobileClick}>
-                              <div className="plus-add">
-                                <AddIcon className="fa-plus" />
-                              </div>
-                              <div onClick={() => { withWallItemAddRejection(addWallRail) }}>
-                                <img
-                                  src={wall[0].imageName}
-                                  alt="img"
-                                  className="top-single-img"
-                                  draggable='true' id={null} onDragStart={onDragStart}
-                                />
-                              </div>
-                              {/* <div className="prduct_name">
-                                <ItemModal
-                                      itemName={wall[0].itemName}
-                                      storeSku={wall[0].storeSku}
-                                      internetNumber={wall[0].internetNumber}
-                                      subitemName={wall[0].subitemName}
-                                      subItems={wall[0].subItems}
-                                      description={wall[0].description}
-                                      learn={wall[0].learn}
-                                      buy={wall[0].buy}
-                                      addAction={async () => withWallItemAddRejection(addWallRail)}
-                                    />
-                              </div> */}
-                              <div className="cardButtons">
-                                <div className="addButton" onClick={
-                                  async () => {
-                                    withWallItemAddRejection(addWallRail)
-                                    setId(wall[0].itemName)
-                                  }
-                                }><AddCircleIcon />add</div>
-                                <ItemModal
-                                  className="addButton infoButton"
-                                  itemName="INFO"
-                                  // itemName={wall[0].itemName}
-                                  storeSku={wall[0].storeSku}
-                                  internetNumber={wall[0].internetNumber}
-                                  subitemName={wall[0].subitemName}
-                                  subItems={wall[0].subItems}
-                                  description={wall[0].description}
-                                  learn={wall[0].learn}
-                                  buy={wall[0].buy}
-                                  addAction={async () => withWallItemAddRejection(addWallRail)}
-                                  isMobile={isMobile}
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="wall_products">
-                        <div className="products_area">
-                          <div className="row  margin_removed" style={{ position: 'relative' }}>
-                            {/* {!wallItems.length && <div className="item-block-overlay">Please select the Rail to get started with your Wall Build.</div>} */}
-                            {wallBuild.map((wall, i) => (
-                              <div
-                                className="col-sm-4 col-6"
-                                key={i.toString()}
-                              >
-                                <div className="product_info" onClick={handleMobileClick}>
-                                  <div className="plus-add">
-                                    <AddIcon className="fa-plus" />
-                                  </div>
-                                  <div
-                                    onClick={() => {
-                                      withWallItemAddRejection(async () => addWallItemById(wall.id))
-                                      setId(wall.itemName)
-                                    }}>
-                                    <img
-                                      src={wall.imageName}
-                                      alt="img"
-                                      className="w-100"
-                                      draggable='true' id={wall.id} onDragStart={onDragStart}
-                                    />
-                                  </div>
-                                  {/* <div className="prduct_name">
-                                    <ItemModal
-                                      itemName={wall.itemName}
-                                      storeSku={wall.storeSku}
-                                      internetNumber={wall.internetNumber}
-                                      subitemName={wall.subitemName}
-                                      subItems={wall.subItems}
-                                      description={wall.description}
-                                      learn={wall.learn}
-                                      buy={wall.buy}
-                                      addAction={async () => withWallItemAddRejection(async () => addWallItemById(wall.id))}
-                                    />
-                                  </div> */}
-                                  <div className="cardButtons">
-                                    <div className="addButton" onClick={
-                                      () => {
-                                        withWallItemAddRejection(async () => addWallItemById(wall.id))
-                                        setId(wall.itemName)
-                                      }
-                                    }><AddCircleIcon />add</div>
-                                    <ItemModal
-                                      className="addButton infoButton"
-                                      itemName="INFO"
-                                      storeSku={wall.storeSku}
-                                      internetNumber={wall.internetNumber}
-                                      subitemName={wall.subitemName}
-                                      subItems={wall.subItems}
-                                      description={wall.description}
-                                      learn={wall.learn}
-                                      buy={wall.buy}
-                                      addAction={async () => {
-                                        withWallItemAddRejection(async () => addWallItemById(wall.id))
-                                      }}
-                                      isMobile={isMobile}
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                          {!!mobileInWallItems.length && 
-                          <div className="row  margin_removed dashed_border-top pt-3">
-                            <h6 className="font-size-small d-block col-sm-12 pb-4">
-                              Use for Wall Build
-                            </h6>
-                            {
-                              mobileInWallItems.map(el => ({...el, ...displayItems.find(el2 => el2.id === el.itemId )}) )
-                              .map((item, i) => (
-                              <div
-                                className="col-sm-4 col-6"
-                                key={i.toString()}
-                              >
-                                <div className="product_info">
-                                  <img
-                                    src={item.imageName}
-                                    alt="img"
-                                    className="w-100"
-                                    onClick={() => withWallItemAddRejection(async () => addFromMobileToWall(item.id))}
-                                  />
-                                  {/* <div className="prduct_name">
-                                    <ItemModal
-                                      className="addButton"
-                                      itemName="INFO"
-                                      storeSku={wall.storeSku}
-                                      internetNumber={wall.internetNumber}
-                                      subitemName={wall.subitemName}
-                                      subItems={wall.subItems}
-                                      description={wall.description}
-                                      learn={wall.learn}
-                                      buy={wall.buy}
-                                      addAction={async () => {
-                                        withWallItemAddRejection(async () => addWallItemById(wall.id))
-                                      }}
-                                    />
-                                  </div> */}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                          }{!!mobileInWallItems.length &&
-                            <div className="row  margin_removed dashed_border-top pt-3">
-                              <h6 className="font-size-small d-block col-sm-12 pb-4">
-                                Use for Wall Build
-                              </h6>
-                              {
-                                mobileInWallItems.map(el => ({ ...el, ...displayItems.find(el2 => el2.id === el.itemId) }))
-                                  .map((item, i) => (
-                                    <div
-                                      className="col-sm-4 col-6"
-                                      key={i.toString()}
-                                    >
-                                      <div className="product_info" onClick={handleMobileClick}>
-                                        <img
-                                          src={item.imageName}
-                                          alt="img"
-                                          className="w-100"
-                                          onClick={() => withWallItemAddRejection(async () => addFromMobileToWall(item.id))}
-                                        />
-                                        {/* <div className="prduct_name">
-                                          <ItemModal
-                                            itemName={item.itemName}
-                                            storeSku={item.storeSku}
-                                            internetNumber={item.internetNumber}
-                                            subitemName={item.subitemName}
-                                            subItems={item.subItems}
-                                            description={item.description}
-                                            learn={item.learn}
-                                            buy={item.buy}
-                                            addAction={async () => withWallItemAddRejection(async () => addFromMobileToWall(item.id))}
-                                          />
-                                        </div> */}
-                                        <div className="cardButtons">
-                                          <div className="addButton"><AddCircleIcon />add</div>
-                                          <ItemModal
-                                            className="addButton infoButton"
-                                            itemName="INFO"
-                                            // itemName={item.itemName}
-                                            storeSku={item.storeSku}
-                                            internetNumber={item.internetNumber}
-                                            subitemName={item.subitemName}
-                                            subItems={item.subItems}
-                                            description={item.description}
-                                            learn={item.learn}
-                                            buy={item.buy}
-                                            addAction={() => withWallItemAddRejection(async () => addFromMobileToWall(item.id))}
-                                            isMobile={isMobile}
-                                          />
-                                        </div>
-                                      </div>
-                                    </div>
-                                  ))}
-                            </div>}
-                        </div>
-                        </div>
-
-                        <div onClick={() => setEnabled(true)} className="add_products_btn show_tour_btn">
-                          show tour
-                        </div>
-
-                        <div className="reset font-size-small" style={{ opacity: wallItems.length ? 1 : 0.5 }}>
-                          <div onClick={() => wallItems.length ? setNotifyModal('resetWall') : null} style={{ cursor: wallItems.length ? 'pointer' : 'default' }}>
-                            <h6 className="font-size-small align-items-center d-flex">
-                              <RefreshIcon /> Reset Wall build
-                            </h6>
-                          </div>
-                        </div>
-                      </div>
-                    </TabPanel>
-
-                    <TabPanel value={value} index={1} className={"reduce-padding card-body-content " + fullHeightClass}>
-                      {/* <div className={"mobile_close_icon " + closeIconClass} onClick={handleMobileClick}>
-                        <CloseIcon />
-                      </div> */}
-                      <div className="tab-pane" id="mobile_build" role="tabpanel">
-                        <div className='top_product_area dashed_border-bottom mobile_bulder row m-0 top_products_intro'>
-                          <h6 className="font-size-small  d-block col-sm-12 ">
-                            Rolling Base
-                          </h6>
-                          <div className="base-mobile-item-container" onClick={handleMobileClick}>
-                            <img src={rollingBase[0].imageName} alt="" className="100%" onClick={() => withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id))} />
-                            <div className="base-item-overlay base-mobile-item-overlay">
-                              <div className="plus-add">
-                                <AddIcon className="fa-plus" />
-                              </div>
-                              <img
-                                src={rollingBase[0].imageName}
-                                alt="img"
-                                onClick={() => withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id))}
-                              />
-                              {/* <div className="prduct_name">
-                                <ItemModal
-                                  itemName={rollingBase[0].itemName}
-                                  storeSku={rollingBase[0].storeSku}
-                                  internetNumber={rollingBase[0].internetNumber}
-                                  subitemName={rollingBase[0].subitemName}
-                                  subItems={rollingBase[0].subItems}
-                                  description={rollingBase[0].description}
-                                  learn={rollingBase[0].learn}
-                                  buy={rollingBase[0].buy}
-                                  addAction={async () => withWallItemAddRejection(async () => addWallItemById(wall.id))}
-                                />
-                              </div> */}
-
-                              <div className="cardButtons">
-                                <div className="addButton" onClick={
-                                  () => {
-                                    withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id))
-                                    setId(rollingBase[0].itemName)
-                                  }
-                                }><AddCircleIcon />add</div>
-
-                                <ItemModal
-                                  className="addButton infoButton"
-                                  itemName={"INFO"}
-                                  storeSku={rollingBase[0].storeSku}
-                                  internetNumber={rollingBase[0].internetNumber}
-                                  subitemName={rollingBase[0].subitemName}
-                                  subItems={rollingBase[0].subItems}
-                                  description={rollingBase[0].description}
-                                  learn={rollingBase[0].learn}
-                                  buy={rollingBase[0].buy}
-                                  addAction={() => withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id))}
-                                  isMobile={isMobile}
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="products_area pt-3">
-                          <div className="products_block">
-                          <div className="row  margin_removed pb-2">
-                            {!mobileItems.length && <div className="item-block-overlay">Please select the Base to get started with your Mobile Build.</div>}
-                            {rollingBaseItem.map((rolling, i) => (
-                              <div
-                                className="col-sm-4 col-6"
-                                key={rolling.id}
-                              >
-                                <div className="product_info" onClick={handleMobileClick}>
-                                  <div className="plus-add">
-                                    <AddIcon className="fa-plus" />
-                                  </div>
-                                  <img
-                                    src={rolling.imageName}
-                                    alt="img"
-                                    className="w-100"
-                                    onClick={() => withMobileItemAddRejection(async () => addMobileItemById(rolling.id))}
-                                  />
-
-                                  {/* <div className="prduct_name">
-                                    <ItemModal
-                                      itemName={rollingBase[0].itemName}
-                                      storeSku={rollingBase[0].storeSku}
-                                      internetNumber={rollingBase[0].internetNumber}
-                                      subitemName={rollingBase[0].subitemName}
-                                      subItems={rollingBase[0].subItems}
-                                      description={rollingBase[0].description}
-                                      learn={rollingBase[0].learn}
-                                      buy={rollingBase[0].buy}
-                                      addAction={async () => withWallItemAddRejection(async () => addWallItemById(wall.id))}
-                                    />
-                                  </div> */}
-
-                                  <div className="cardButtons">
-
-                                    <div className="addButton" onClick={
-                                      () => {
-                                        withMobileItemAddRejection(async () => addMobileItemById(rolling.id))
-                                        setId(rolling.itemName)
-                                      }
-                                    }><AddCircleIcon />add</div>
-
-                                    <ItemModal
-                                      className="addButton infoButton"
-                                      itemName={"INFO"}
-                                      storeSku={rolling.storeSku}
-                                      internetNumber={rolling.internetNumber}
-                                      subitemName={rolling.subitemName}
-                                      subItems={rolling.subItems}
-                                      description={rolling.description}
-                                      learn={rolling.learn}
-                                      buy={rolling.buy}
-                                      addAction={() => withMobileItemAddRejection(async () => addMobileItemById(rolling.id))}
-                                      isMobile={isMobile}
-                                    />
-                                  </div>
-
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                          {!!wallInMobileItems.length &&
-                            <div className="row  margin_removed dashed_border-top pt-3">
-                              <h6 className="font-size-small d-block col-sm-12 pb-4">
-                                Use for Mobile Build
-                              </h6>
-                              {
-                                wallInMobileItems.map(el => ({ ...el, ...displayItems.find(el2 => el2.id === el.itemId) }))
-                                  .map((item, i) => (
-                                    <div
-                                      className="col-sm-4 col-6"
-                                      key={i.toString()}
-                                    >
-                                      <div className="product_info">
-                                        <img
-                                          src={item.imageName}
-                                          alt="img"
-                                          className="w-100"
-                                          onClick={() => withMobileItemAddRejection(async () => addFromWallToMobile(item.id))}
-                                        />
-                                        {/* <div className="prduct_name">
-                                          <ItemModal
-                                            itemName={item.itemName}
-                                            storeSku={item.storeSku}
-                                            internetNumber={item.internetNumber}
-                                            subitemName={item.subitemName}
-                                            subItems={item.subItems}
-                                            description={item.description}
-                                            learn={item.learn}
-                                            buy={item.buy}
-                                            addAction={async () => withMobileItemAddRejection(async () => addFromWallToMobile(item.id))}
-                                          />
-                                        </div> */}
-                                      </div>
-                                    </div>
-                                  ))}
-                            </div>}
-                          </div>
-                        </div>
-
-                        <div onClick={() => setEnabled(true)} className="add_products_btn show_tour_btn">
-                          show tour
-                        </div>
-
-                        <div className="reset font-size-small" style={{ opacity: mobileItems.length ? 1 : 0.5 }}>
-                          <div onClick={() => mobileItems.length ? setNotifyModal('resetMobile') : null} style={{ cursor: mobileItems.length ? 'pointer' : 'default' }}>
-                            <h6 className="font-size-small align-items-center d-flex">
-                              <RefreshIcon /> Reset Mobile Storage build
-                            </h6>
-                          </div>
-                        </div>
-                      </div>
-                    </TabPanel>
-
-
-                  </div>
-                </div>
-              </div>
-            </div>}
+            {isPlayerReady && <Mobile { ...mobileProps }/>}
           </div>
         </div>
       </div>
