@@ -92,9 +92,11 @@ export default function Ryobi() {
     allConfiguratorItems,
     wallInMobileItems,
     mobileInWallItems,
-    isAboutToDelete
+    isAboutToDelete,
+    highlightAvailableRails,
+    highlightMobileItemById
   } = configuratorStore
-
+  
   const {
     wallSizes,
   } = dataStore
@@ -207,21 +209,31 @@ export default function Ryobi() {
 
   const scrollDownClick = (e) => { window.scrollTo(0, e.screenX) }
 
-  const onDragStart = (event) => {
-    const data = JSON.stringify({ wallId: event.target.id });
+  const onDragStart = async (event) => {
+    const productId = event.target.id;
+    const data = JSON.stringify({ productId });
+    
+    if (!!productId) !value ? highlightAvailableRails(productId) : highlightMobileItemById();
+
     event.dataTransfer.setData('data', data);
     event.dataTransfer.setDragImage(event.target, (0.5 * event.target.clientWidth), (0.5 * event.target.clientWidth));
   };
 
-  const onDragOver = (e) => { e.preventDefault(); }
+  const onDragOver = (e) => {
+    e.preventDefault();
+  }
   
+  const onDropAny = () => {
+    window.threekit.player.selectionSet.set([]) // remove highlightings
+  }
   const onDrop = async (e) => {
-    const { wallId } = JSON.parse(e.dataTransfer.getData("data"));
-    if (value === 0) {
-      !!wallId ? withWallItemAddRejection(async () => addWallItemById(wallId)) : withWallItemAddRejection(async () => addWallRail());
-    } else if (value === 1) {
-      !!wallId ? withMobileItemAddRejection(async () => addMobileItemById(wallId)) : withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id));
+    const { productId } = JSON.parse(e.dataTransfer.getData("data"));
+    if (value === 0) { // drop wall item
+      !!productId ? withWallItemAddRejection(async () => addWallItemById(productId)) : withWallItemAddRejection(async () => addWallRail());
+    } else if (value === 1) { // drop rolling base product
+      !!productId ? withMobileItemAddRejection(async () => addMobileItemById(productId)) : withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id));
     }
+    onDropAny();
   }
 
   const wallBuildProps = { TabPanel, value, fullHeightClass, wallSizes, withWallSizeChangeRejection, setWallWidth, setWallHeight, wallWidth,
@@ -242,7 +254,9 @@ export default function Ryobi() {
     value,
     handleChange,
     a11yProps,
-    handleClick
+    handleClick,
+    onDragOver,
+    onDropAny
   }
 
 
@@ -268,7 +282,7 @@ export default function Ryobi() {
                   <Notification open={open} handleCloseBar={handleCloseBar} id={id}/>
                   <Header />
                   <ListSubheader>
-                    <div className="col-lg-4  mobile_style">
+                    <div className="col-lg-4  mobile_style" onDrop={onDropAny} onDragOver={onDragOver}>
                       <div className="configurator_area">
                         <div className="card">
                           <div className="card-header">

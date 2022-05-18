@@ -22,6 +22,8 @@ import {
   removeAllTools,
   removeWallItemById,
   removeMobileItemById,
+  highlightAvailableRails,
+  highlightMobileItemById
 } from './configurator/index.js'
 
 const useConfigurator = ({ itemsStore, playerStore, dataStore }) => {
@@ -179,7 +181,14 @@ const useConfigurator = ({ itemsStore, playerStore, dataStore }) => {
       return false
     }
   }
-  
+
+  const highlightMobileItemByIdWrapper = () => {
+    highlightMobileItemById(stack.current)
+  }
+  const highlightAvailableRailsWrapper = (itemId) => {
+    highlightAvailableRails(itemId, wallAssets, grid.current)
+  }
+
   const addWallRailWrapper = async () => {
     const nodeId = await addWallRail(grid.current)
     if (nodeId) {
@@ -189,7 +198,7 @@ const useConfigurator = ({ itemsStore, playerStore, dataStore }) => {
       return false
     }
   }
-  
+
   const addWallItemByIdWrapper = async (itemId) => {
     const nodeId = await addWallItemById(itemId, wallAssets, grid.current)
     if (nodeId) {
@@ -200,7 +209,7 @@ const useConfigurator = ({ itemsStore, playerStore, dataStore }) => {
       addWallItemByIdWrapper(itemId) // recursively try to add a product
       return true
     }
-  } 
+  }
 
   return {
     lockCamera,
@@ -265,7 +274,9 @@ const useConfigurator = ({ itemsStore, playerStore, dataStore }) => {
     allConfiguratorItems: allItems,
     wallInMobileItems,
     mobileInWallItems,
-    isAboutToDelete
+    isAboutToDelete,
+    highlightAvailableRails: highlightAvailableRailsWrapper,
+    highlightMobileItemById: highlightMobileItemByIdWrapper
   }
 };
 

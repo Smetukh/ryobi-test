@@ -81,15 +81,16 @@ function getGridSpaceForItem(grid, gridPoint, itemSizes) {
       }
     }
   }
+  
+  const cond0 = itemGrid.filter(el => el.rail && (!el.item || el.item === 'transit') && !el.blocked).length === itemGrid.length;
+  const cond1 = itemGrid.length === (itemSizes.hookX * itemSizes.hookY);
+  const cond2 = !safeBoxGrid.filter(el => el.safeBox && el.safeBox !== 'transit').length;
+  const highlightCond = !cond0 && cond1 && cond2;
 
-  if (
-    itemGrid.filter(el => el.rail && (!el.item || el.item === 'transit') && !el.blocked).length === itemGrid.length
-    && itemGrid.length === (itemSizes.hookX * itemSizes.hookY)
-    && !safeBoxGrid.filter(el => el.safeBox && el.safeBox !== 'transit').length
-  ) {
-    return { itemGrid, safeBoxGrid }
+  if (cond0 && cond1 && cond2) {
+    return { itemGrid, safeBoxGrid, highlightCond }
   } else {
-    return null
+    return { highlightCond }
   }
 }
 
@@ -135,7 +136,7 @@ async function removeMobileItemById(nodeId, stack) {
 }
 
 async function addWallItemById(itemId, wallAssets, grid) {
-  const item = wallAssets.find(item => item.id === itemId)
+  const item = wallAssets.find(item => item.id === itemId)  
   const { sizes } = item
   let itemGrid = null
   let safeBoxGrid = null
@@ -160,6 +161,48 @@ async function addWallItemById(itemId, wallAssets, grid) {
   itemGrid.forEach(el => { el.item = nodeId })
   safeBoxGrid.forEach(el => { el.safeBox = nodeId })
   return nodeId
+}
+
+function highlightAvailableRails(itemId, wallAssets, grid) {
+  const item = wallAssets.find(item => item.id === itemId) || {}
+  const { sizes } = item
+  let nodeIdList = {};
+
+  grid.flat().filter(el => el.rail).forEach(gridPoint => {
+    const gridSpaceBox = getGridSpaceForItem(grid, gridPoint, sizes) || {}
+    const { itemGrid, highlightCond } = gridSpaceBox;
+    const { rail } = gridPoint;
+
+    // set rail occupation state
+    const updateState = (oldState) => {
+      switch(oldState) {
+        case 'isAvailable':
+          return itemGrid ? 'isAvailable' : 'isPartial'
+        case 'isOccupied':
+          return itemGrid ? 'isPartial' : 'isOccupied'
+        case 'isPartial':
+          return 'isPartial'
+        default:
+          return itemGrid ? 'isAvailable' : 'isOccupied'
+      }
+    }
+    
+    // check if itemGrid is equal to product size
+      if (!highlightCond) nodeIdList = { ...nodeIdList, [rail]: updateState(nodeIdList[rail])}
+  })
+  let yellowListIds = []
+  
+  for (const [key, value] of Object.entries(nodeIdList)) {
+    if(value !== 'isOccupied') yellowListIds.push(key);
+  }
+  // highlight available rails 
+  window.threekit.player.selectionSet.set(yellowListIds)
+  window.threekit.player.selectionSet.setStyle({ outlineColor: 'yellow' });
+}
+
+function highlightMobileItemById (stack) {
+  window.threekit.player.selectionSet.set([stack.at(-1).nodeId]);
+  window.threekit.player.selectionSet.setStyle({ outlineColor: 'yellow' });
 }
 
 async function addWallRail(grid) {
@@ -217,7 +260,6 @@ function doesHistLastInMobileStack(hitNodes, mobileAssets, stack) {
     && ['item', 'base'].includes(mobileAssets.find(el => hitNodes[0].hierarchy[2]?.name === el.id)?.assetType)
 }
 
-
 function doesHitWallItem(hitNodes, wallAssets) {
   return hitNodes
     && hitNodes[0]
@@ -253,6 +295,8 @@ function addWallDragTool(grid, wallAssets, onDeleteNode, onHoverOffBounds, onDra
       hover: async (ev) => {
         if (doesHitWallItem(ev.hitNodes, wallAssets)) {
           const node = ev.hitNodes[0].hierarchy[1]
+          
+          
           window.threekit.player.selectionSet.setStyle({ outlineColor: 'yellow' });
           window.threekit.player.selectionSet.set([node.nodeId])
         } else if (doesHitRail(ev.hitNodes, wallAssets)) {
@@ -277,8 +321,8 @@ function addWallDragTool(grid, wallAssets, onDeleteNode, onHoverOffBounds, onDra
           dragEvent = 'item'
           node = ev.hitNodes[0].hierarchy[1]
 
-          const item = wallAssets.find(el => el.id === node.name)
-
+          const item = wallAssets.find(el => el.id === node.name) || {}          
+          
           itemX = item.sizes.x
           itemY = item.sizes.y
           itemSizes = item.sizes
@@ -289,7 +333,7 @@ function addWallDragTool(grid, wallAssets, onDeleteNode, onHoverOffBounds, onDra
         }
 
         return {
-          handle: async (currentEvent) => {
+          handle: async (currentEvent) => {            
             if (!node) return
             lastEvent = currentEvent
             if (!currentEvent.hitNodes.length) {
@@ -307,9 +351,8 @@ function addWallDragTool(grid, wallAssets, onDeleteNode, onHoverOffBounds, onDra
               window.threekit.player.selectionSet.setStyle({ outlineColor: 'yellow' });
               if (onHoverOffBounds) onHoverOffBounds(false)
             }
-            if (dragEvent === 'rail') {
+            if (dragEvent === 'rail') {              
               const isMovable = canRailNodeMove(node.nodeId, grid)
-
               if (!isMovable) {
                 window.threekit.player.selectionSet.set([])
                 return false
@@ -327,8 +370,7 @@ function addWallDragTool(grid, wallAssets, onDeleteNode, onHoverOffBounds, onDra
 
               grid.flat().filter(el => el.rail == node.nodeId).forEach(el => { el.rail = 'transit' })
 
-              if (!gridPoint.rail && gridPoint.rail !== 'transit') {
-
+              if (!gridPoint.rail && gridPoint.rail !== 'transit') {                
                 const newTranslation = {
                   x: slotGrid[0].min.x,
                   y: slotGrid[0].min.y,
@@ -344,7 +386,7 @@ function addWallDragTool(grid, wallAssets, onDeleteNode, onHoverOffBounds, onDra
                 grid.flat().filter(el => el.rail == 'transit').forEach(el => { el.rail = node.nodeId })
               }
 
-            } else if (dragEvent === 'item') {
+            } else if (dragEvent === 'item') {              
               const currentIntersection = currentEvent.hitNodes.pop().intersection
 
               const gridPoint = grid.flat().find(el => currentIntersection.x >= el.min.x && currentIntersection.x <= el.max.x && currentIntersection.y >= el.min.y && currentIntersection.y <= el.max.y)
@@ -358,10 +400,10 @@ function addWallDragTool(grid, wallAssets, onDeleteNode, onHoverOffBounds, onDra
                 prevItemGrid.forEach(el => { el.item = 'transit' })
                 prevSafeBoxGrid.forEach(el => { el.safeBox = 'transit' })
 
-                const gridSpaceBox = getGridSpaceForItem(grid, gridPoint, itemSizes)
+                const gridSpaceBox = getGridSpaceForItem(grid, gridPoint, itemSizes) || {}
+                const { itemGrid, safeBoxGrid } = gridSpaceBox
 
-                if (gridSpaceBox) {
-                  const { itemGrid, safeBoxGrid } = gridSpaceBox
+                if (itemGrid) {
                   const newTranslation = {
                     x: gridPoint.min.x,
                     y: gridPoint.min.y,
@@ -376,13 +418,10 @@ function addWallDragTool(grid, wallAssets, onDeleteNode, onHoverOffBounds, onDra
                   prevItemGrid.forEach(el => { el.item = node.nodeId })
                   prevSafeBoxGrid.forEach(el => { el.safeBox = node.nodeId })
                 }
-
               }
             }
-            // console.log(grid)
-            // console.log(grid.flat().filter(el => el.safeBox).length)
           },
-          onEnd: () => {
+          onEnd: () => {            
             if (lastEvent && !lastEvent.hitNodes.length && node) {
               if (dragEvent === 'rail') {
                 const isMovable = canRailNodeMove(node.nodeId, grid)
@@ -765,5 +804,7 @@ export {
   loadGlobalState,
   resetGlobalState,
   resetWallGrid,
-  resetMobileStack
+  resetMobileStack,
+  highlightAvailableRails,
+  highlightMobileItemById
 }
