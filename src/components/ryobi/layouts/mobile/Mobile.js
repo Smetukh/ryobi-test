@@ -16,11 +16,13 @@ const Mobile = ({
   value,
   handleChange,
   a11yProps,
-  handleClick
+  handleClick,
+  onDragOver,
+  onDropAny
 }) => {
 
   return (
-    <div className="col-lg-4  mobile_style">
+    <div className="col-lg-4  mobile_style"  onDrop={onDropAny} onDragOver={onDragOver}>
       <div className="configurator_area">
         <div className="card cardMobile">
           <div className="card-header">
