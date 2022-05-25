@@ -12,21 +12,25 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue }) {
   const [steps, setSteps] = useState([
     {
       element: '.MuiTabs-root',
-      intro: 'First, select a base for your build',
+      intro: 'First, select the type of Custom Storage Build',
       position: 'right',
     },
     {
       element: '.top_product_area',
-      intro: 'Please select the base to get started with your mobile build',
+      intro: 'Next, select the base to get started with your build',
     },
     {
-      element: `[class^='arButton']`,
-      intro: 'When your build is ready click here to view it in your space via Augmented Reality',
+      element: `.item-block-overlay`,
+      intro: 'Now, add an additional product to your build',
       position: 'left'
     },
     {
       element: '.player_area',
-      intro: 'You can interact with your products in the player'
+      intro: 'You can interact with your products in the builder.'
+    },
+    {
+      element: `[class^='arButton']`,
+      intro: 'When your build is ready click here to view it in your space via Augmented Reality'
     },
     {
       element: '.bottom_player_area',
@@ -42,21 +46,25 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue }) {
           [
             {
               element: '.MuiTabs-root',
-              intro: 'First, select a base for your build',
+              intro: 'First, select the type of Custom Storage Build',
               position: 'right',
             },
             {
               element: '.base-wall-mobile',
-              intro: 'Please select the base to get started with your mobile build',
+              intro: 'Next, select the base to get started with your build',
             },
             {
-              element: `[class^='arButton']`,
-              intro: 'When your build is ready click here to view it in your space via Augmented Reality',
+              element: `.products_area`,
+              intro: 'Now, add an additional product to your build',
               position: 'left'
             },
             {
               element: '.player_area',
-              intro: 'You can interact with your products in the player'
+              intro: 'You can interact with your products in the builder.'
+            },
+            {
+              element: `[class^='arButton']`,
+              intro: 'When your build is ready click here to view it in your space via Augmented Reality'
             },
             {
               element: '.bottom_player_area',
@@ -72,21 +80,25 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue }) {
           [
             {
               element: '.MuiTabs-root',
-              intro: 'First, select a base for your build',
+              intro: 'First, select the type of Custom Storage Build ',
               position: 'right',
             },
             {
               element: '.top_product_area',
-              intro: 'Please select the base to get started with your mobile build',
+              intro: 'Next, select the base to get started with your build',
             },
             {
-              element: `[class^='arButton']`,
-              intro: 'When your build is ready click here to view it in your space via Augmented Reality',
+              element: `.item-block-overlay`,
+              intro: 'Now, add an additional product to your build',
               position: 'left'
             },
             {
               element: '.player_area',
-              intro: 'You can interact with your products in the player'
+              intro: 'You can interact with your products in the builder.'
+            },
+            {
+              element: `[class^='arButton']`,
+              intro: 'When your build is ready click here to view it in your space via Augmented Reality'
             },
             {
               element: '.bottom_player_area',
