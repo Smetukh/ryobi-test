@@ -17,13 +17,13 @@ const CustomTabs = ({ value, handleChange, handleClick, a11yProps, className }) 
         <Tab
           label="Wall Build"
           {...a11yProps(0)}
-          onClick={!!handleClick ? handleClick : () => {}}
+          onClick={handleClick}
           className="wall_build button_build"
         />
         <Tab
           label="Mobile Build"
           {...a11yProps(1)}
-          onClick={!!handleClick ? handleClick : () => {}}
+          onClick={handleClick}
           className="mobile_build button_build"
         />
     </Tabs>

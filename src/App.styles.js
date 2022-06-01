@@ -368,19 +368,19 @@ const AppStyles = styled.div`
 	}
 
 	.add_products_btn {
-    background-color: #000;
-    color: white;
-    text-align: center;
-    padding: 5px 20px;
-    border-radius: 8px;
-    max-width: 90%;
-    margin: 0 auto;
-    text-transform: uppercase;
-    display: none;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 10px;
-    color: #e1e723;
+		background-color: #000;
+		color: white;
+		text-align: center;
+		padding: 5px 20px;
+		border-radius: 8px;
+		max-width: 90%;
+		margin: 0 auto;
+		text-transform: uppercase;
+		display: none;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 10px;
+		color: #e1e723;
   }
 
   .show_tour_btn {
@@ -1158,6 +1158,13 @@ const AppStyles = styled.div`
 
 		.border-add {
 			padding: 32px 0 24px;
+		}
+
+		.show_tour_btn {
+			display: block;
+			width: 100%;
+			justify-content: center;
+			margin-bottom: 20px;
 		}
 
 		/* .playerScroll [class*="player_area"] {

@@ -10,6 +10,7 @@ import Snackbar from '@mui/material/Snackbar';
 import { useMediaQuery } from 'react-responsive'
 import ListSubheader from '@mui/material/ListSubheader';
 import Mobile from './layouts/mobile/Mobile';
+import introJs from 'intro.js';
 import "intro.js/introjs.css";
 import "./Modal/index.css";
 
@@ -37,6 +38,7 @@ import CustomTabs from "./tabs/tabs";
 import Notification from "./notification/notification";
 
 const displayItems = [...wall, ...wallBuild, ...rollingBase, ...rollingBaseItem]
+const intro = introJs();
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -238,11 +240,11 @@ export default function Ryobi() {
 
   const wallBuildProps = { TabPanel, value, fullHeightClass, wallSizes, withWallSizeChangeRejection, setWallWidth, setWallHeight, wallWidth,
     wallHeight, wall, withWallItemAddRejection, addWallRail, handleMobileClick, onDragStart, setId, isMobile, wallBuild, addWallItemById, mobileInWallItems,
-    displayItems, addFromMobileToWall, setEnabled, wallItems, setNotifyModal
+    displayItems, addFromMobileToWall, setEnabled, wallItems, setNotifyModal, enabled, intro
   }
 
   const mobileBuildProps = { TabPanel, value, fullHeightClass, handleMobileClick, onDragStart, setId, isMobile, setEnabled, setNotifyModal,
-    withMobileItemAddRejection, rollingBase, addMobileItemById, mobileItems, rollingBaseItem, wallInMobileItems, displayItems, addFromWallToMobile
+    withMobileItemAddRejection, rollingBase, addMobileItemById, mobileItems, rollingBaseItem, wallInMobileItems, displayItems, addFromWallToMobile, enabled, intro
   }
 
   const mobileProps = {
@@ -262,8 +264,8 @@ export default function Ryobi() {
 
   return (
     <div onTouchStart={onTouchStart} onTouchMove={onTouchMove} move={move}>
-      <TourModal enabled={enabled} setEnabled={setEnabled} tabValue={value}/>
-      <FoundIssueModal setEnabled={setEnabled} open={notifyModal === 'welcome'} fullHeightClick={handleClick} setOpen={setNotifyModal} messagePayload={messages.welcome} isMobile={isMobile} isPlayerReady={isPlayerReady} isWelcome={true}/>
+      <TourModal enabled={enabled} setEnabled={setEnabled} tabValue={value} isMobile={isMobile} intro={intro}/>
+      <FoundIssueModal setEnabled={setEnabled} intro={intro} open={notifyModal === 'welcome'} fullHeightClick={handleClick} setOpen={setNotifyModal} messagePayload={messages.welcome} isMobile={isMobile} isPlayerReady={isPlayerReady} isWelcome={true}/>
       <FoundIssueModal open={notifyModal === 'noSpaceWall'} setOpen={setNotifyModal} messagePayload={messages.noSpaceWall} />
       <FoundIssueModal open={notifyModal === 'noSpaceMobile'} setOpen={setNotifyModal} messagePayload={messages.noSpaceMobile} />
       <FoundIssueModal open={notifyModal === 'destructiveWallSize'} setOpen={setNotifyModal} messagePayload={messages.destructiveWallSize} />
@@ -286,7 +288,7 @@ export default function Ryobi() {
                       <div className="configurator_area">
                         <div className="card">
                           <div className="card-header">
-                            <CustomTabs value={value} handleChange={handleChange} a11yProps={a11yProps} className="mobileTabs"/>
+                            <CustomTabs value={value} handleChange={handleChange} a11yProps={a11yProps} className="mobileTabs" handleClick={handleClick}/>
                           </div>
                         </div>
                       </div>
@@ -308,12 +310,17 @@ export default function Ryobi() {
                   </div>
                 }
               </div>
+              {isMobile &&
+                <div onClick={() => setEnabled(true)} className="add_products_btn show_tour_btn">
+                  show tour
+                </div>
+              }
               {isPlayerReady && <div className="bottom_player_area">
                 <div className="share_div">
-                  <ShareModal buyNow={selectionItems} shareGlobalState={shareGlobalState} />
+                  <ShareModal intro={intro} buyNow={selectionItems} shareGlobalState={shareGlobalState} />
                 </div>
                 <div className="buy_btn">
-                  <BuyNowModal buyNow={selectionItems} />
+                  <BuyNowModal intro={intro} buyNow={selectionItems} />
                 </div>
               </div>}
             </div>
