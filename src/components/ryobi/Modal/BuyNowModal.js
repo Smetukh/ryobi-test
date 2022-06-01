@@ -4,9 +4,10 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 // import { BuyNow } from "../constant";
 
-export default function BuyNowModal({buyNow}) {
+export default function BuyNowModal({buyNow, intro}) {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
+    intro.exit();
     setOpen(true);
   };
 

@@ -6,7 +6,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import { jsPDF } from 'jspdf';
 import { FuturaPTMediumFontBase64, FuturaPTBoldFontBase64 } from '../../../assets/FuturaFontBase64';
 
-export default function ShareModal({ shareGlobalState, buyNow }) {
+export default function ShareModal({ shareGlobalState, buyNow, intro }) {
     const [open, setOpen] = React.useState(false);
     
     const [shareUrl, setShareUrl] = React.useState();
@@ -15,6 +15,7 @@ export default function ShareModal({ shareGlobalState, buyNow }) {
         const { resumableUrl } = await shareGlobalState()
         setShareUrl(resumableUrl)
         setOpen(true);
+        intro.exit();
     };
 
     const handleClose = () => {

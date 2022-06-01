@@ -1,6 +1,5 @@
 import React from 'react';
 
-import CancelIcon from '@mui/icons-material/Cancel';
 import AddIcon from "@mui/icons-material/Add";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RefreshIcon from "@mui/icons-material/Refresh";
@@ -31,7 +30,9 @@ const CustomTabPanel = ({
   setEnabled,
   wallItems,
   setNotifyModal,
-  index
+  index,
+  enabled,
+  intro
 }) => {
   return (
     <TabPanel
@@ -81,13 +82,23 @@ const CustomTabPanel = ({
                 src={wall[0].imageName}
                 alt="img"
                 className="top-single-img"
-                onClick={() => { withWallItemAddRejection(addWallRail) }}
+                onClick={() => {
+                  withWallItemAddRejection(addWallRail);
+                  if (enabled) {
+                    intro.goToStep(2).start();
+                  }
+                }}
               />
               <div className="base-item-overlay base-wall-item-overlay" onClick={handleMobileClick}>
                 <div className="plus-add">
                   <AddIcon className="fa-plus" />
                 </div>
-                <div onClick={() => { withWallItemAddRejection(addWallRail) }}>
+                <div onClick={() => {
+                  withWallItemAddRejection(addWallRail);
+                  if (enabled) {
+                    intro.goToStep(2).start();
+                  }
+                }}>
                   <img
                     src={wall[0].imageName}
                     alt="img"
@@ -100,6 +111,9 @@ const CustomTabPanel = ({
                     async () => {
                       withWallItemAddRejection(addWallRail)
                       setId(wall[0].itemName)
+                      if (enabled) {
+                        intro.goToStep(2).start();
+                      }
                     }
                   }><AddCircleIcon />add</div>
                   <ItemModal
@@ -136,6 +150,9 @@ const CustomTabPanel = ({
                       onClick={() => {
                         withWallItemAddRejection(async () => addWallItemById(wall.id))
                         setId(wall.itemName)
+                        if (enabled) {
+                          intro.goToStep(3).start();
+                        }
                       }}>
                       <img
                         src={wall.imageName}
@@ -149,6 +166,9 @@ const CustomTabPanel = ({
                         () => {
                           withWallItemAddRejection(async () => addWallItemById(wall.id))
                           setId(wall.itemName)
+                          if (enabled) {
+                            intro.goToStep(3).start();
+                          }
                         }
                       }><AddCircleIcon />add</div>
                       <ItemModal
@@ -235,9 +255,11 @@ const CustomTabPanel = ({
               </div>}
           </div>
           </div>
-          <div onClick={() => setEnabled(true)} className="add_products_btn show_tour_btn">
-            show tour
-          </div>
+          {!isMobile &&
+            <div onClick={() => setEnabled(true)} className="add_products_btn show_tour_btn">
+              show tour
+            </div>
+          }
           <div className="reset font-size-small" style={{ opacity: wallItems.length ? 1 : 0.5 }}>
             <div onClick={() => wallItems.length ? setNotifyModal('resetWall') : null} style={{ cursor: wallItems.length ? 'pointer' : 'default' }}>
               <h6 className="font-size-small align-items-center d-flex">

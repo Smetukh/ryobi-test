@@ -23,9 +23,9 @@ const RollingBaseTabPanel = ({
   rollingBaseItem,
   wallInMobileItems,
   displayItems,
-  addFromWallToMobile
-
-
+  addFromWallToMobile,
+  intro,
+  enabled
 }) => {
     return (
         <TabPanel value={value} index={index} className={"reduce-padding card-body-content " + fullHeightClass}>
@@ -43,7 +43,12 @@ const RollingBaseTabPanel = ({
                 <img
                   src={rollingBase[0].imageName}
                   alt="img"
-                  onClick={() => withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id))}
+                  onClick={() => {
+                    withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id));
+                    if (enabled) {
+                      intro.goToStep(2).start();
+                    }
+                  }}
                   onDragStart={onDragStart}
                 />
                 <div className="cardButtons">
@@ -51,6 +56,9 @@ const RollingBaseTabPanel = ({
                     () => {
                       withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id))
                       setId(rollingBase[0].itemName)
+                      if (enabled) {
+                        intro.goToStep(2).start();
+                      }
                     }
                   }><AddCircleIcon />add</div>
                   <ItemModal
@@ -87,7 +95,12 @@ const RollingBaseTabPanel = ({
                       src={rolling.imageName}
                       alt="img"
                       className="w-100"
-                      onClick={() => withMobileItemAddRejection(async () => addMobileItemById(rolling.id))}
+                      onClick={() => {
+                        withMobileItemAddRejection(async () => addMobileItemById(rolling.id))
+                        if (enabled) {
+                          intro.goToStep(3).start();
+                        }
+                      }}
                       onDragStart={onDragStart}
                       draggable='true' id={rolling.id}
                     />
@@ -96,6 +109,9 @@ const RollingBaseTabPanel = ({
                         () => {
                           withMobileItemAddRejection(async () => addMobileItemById(rolling.id))
                           setId(rolling.itemName)
+                          if (enabled) {
+                            intro.goToStep(3).start();
+                          }
                         }
                       }><AddCircleIcon />add</div>
                       <ItemModal
@@ -141,9 +157,11 @@ const RollingBaseTabPanel = ({
               </div>}
             </div>
           </div>
-          <div onClick={() => setEnabled(true)} className="add_products_btn show_tour_btn">
-            show tour
-          </div>
+          {!isMobile && 
+            <div onClick={() => setEnabled(true)} className="add_products_btn show_tour_btn">
+              show tour
+            </div>
+          }
           <div className="reset font-size-small" style={{ opacity: mobileItems.length ? 1 : 0.5 }}>
             <div onClick={() => mobileItems.length ? setNotifyModal('resetMobile') : null} style={{ cursor: mobileItems.length ? 'pointer' : 'default' }}>
               <h6 className="font-size-small align-items-center d-flex">
