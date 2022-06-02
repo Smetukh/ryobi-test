@@ -381,6 +381,7 @@ const AppStyles = styled.div`
 		justify-content: space-between;
 		margin-top: 10px;
 		color: #e1e723;
+		cursor: pointer;
   }
 
   .show_tour_btn {
