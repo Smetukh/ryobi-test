@@ -129,6 +129,9 @@ export default function Ryobi() {
   const withMobileItemAddRejection = async (addHandler) => {
     if (!(await addHandler())) {
       setNotifyModal('noSpaceMobile')
+    } else {
+      handleClickBar();
+      handleMobileClick();
     }
   }
 

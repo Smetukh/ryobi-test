@@ -45,8 +45,9 @@ const RollingBaseTabPanel = ({
                   alt="img"
                   onClick={() => {
                     withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id));
+                    setId(rollingBase[0].itemName);
                     if (enabled) {
-                      intro.goToStep(2).start();
+                      intro.nextStep().start();
                     }
                   }}
                   onDragStart={onDragStart}
@@ -57,7 +58,7 @@ const RollingBaseTabPanel = ({
                       withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id))
                       setId(rollingBase[0].itemName)
                       if (enabled) {
-                        intro.goToStep(2).start();
+                        intro.nextStep().start();
                       }
                     }
                   }><AddCircleIcon />add</div>
@@ -96,9 +97,10 @@ const RollingBaseTabPanel = ({
                       alt="img"
                       className="w-100"
                       onClick={() => {
-                        withMobileItemAddRejection(async () => addMobileItemById(rolling.id))
+                        withMobileItemAddRejection(async () => addMobileItemById(rolling.id));
+                        setId(rolling.itemName);
                         if (enabled) {
-                          intro.goToStep(3).start();
+                          intro.nextStep().start();
                         }
                       }}
                       onDragStart={onDragStart}
@@ -110,7 +112,7 @@ const RollingBaseTabPanel = ({
                           withMobileItemAddRejection(async () => addMobileItemById(rolling.id))
                           setId(rolling.itemName)
                           if (enabled) {
-                            intro.goToStep(3).start();
+                            intro.nextStep().start();
                           }
                         }
                       }><AddCircleIcon />add</div>

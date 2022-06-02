@@ -85,7 +85,7 @@ const CustomTabPanel = ({
                 onClick={() => {
                   withWallItemAddRejection(addWallRail);
                   if (enabled) {
-                    intro.goToStep(2).start();
+                    intro.nextStep().start();
                   }
                 }}
               />
@@ -96,7 +96,7 @@ const CustomTabPanel = ({
                 <div onClick={() => {
                   withWallItemAddRejection(addWallRail);
                   if (enabled) {
-                    intro.goToStep(2).start();
+                    intro.nextStep().start();
                   }
                 }}>
                   <img
@@ -112,7 +112,7 @@ const CustomTabPanel = ({
                       withWallItemAddRejection(addWallRail)
                       setId(wall[0].itemName)
                       if (enabled) {
-                        intro.goToStep(2).start();
+                        intro.nextStep().start();
                       }
                     }
                   }><AddCircleIcon />add</div>
@@ -151,7 +151,7 @@ const CustomTabPanel = ({
                         withWallItemAddRejection(async () => addWallItemById(wall.id))
                         setId(wall.itemName)
                         if (enabled) {
-                          intro.goToStep(3).start();
+                          intro.nextStep().start();
                         }
                       }}>
                       <img
@@ -167,7 +167,7 @@ const CustomTabPanel = ({
                           withWallItemAddRejection(async () => addWallItemById(wall.id))
                           setId(wall.itemName)
                           if (enabled) {
-                            intro.goToStep(3).start();
+                            intro.nextStep().start();
                           }
                         }
                       }><AddCircleIcon />add</div>

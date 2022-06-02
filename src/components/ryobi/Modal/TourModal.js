@@ -7,17 +7,16 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue, isMobil
   const steps = [
     {
       element: '.MuiTabs-root',
-      intro: 'First, select the type of Custom Storage Build',
-      position: 'right',
+      intro: 'First, select the type of Custom Storage Build'
     },
     {
       element: '.top_product_area',
       intro: 'Next, select the base to get started with your build',
+      position: 'left'
     },
     {
       element: `.products_block`,
-      intro: 'Now, add an additional product to your build',
-      position: 'left'
+      intro: 'Now, add an additional product to your build'
     },
     {
       element: '.player_area',
@@ -50,17 +49,16 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue, isMobil
         steps: [
           {
             element: isMobile ? '.mobileTabs' : '.MuiTabs-root',
-            intro: 'First, select the type of Custom Storage Build',
-            position: 'right',
+            intro: 'First, select the type of Custom Storage Build'
           },
           {
             element: '.base-wall-mobile',
             intro: 'Next, select the base to get started with your build',
+            position: 'left'
           },
           {
             element: `.products_area`,
-            intro: 'Now, add an additional product to your build',
-            position: 'left'
+            intro: 'Now, add an additional product to your build'
           },
           {
             element: '.player_area',
@@ -87,17 +85,16 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue, isMobil
           steps: [
             {
               element: '.MuiTabs-root',
-              intro: 'First, select the type of Custom Storage Build ',
-              position: 'right',
+              intro: 'First, select the type of Custom Storage Build '
             },
             {
               element: '.top_product_area',
               intro: 'Next, select the base to get started with your build',
+              position: 'left'
             },
             {
               element: `.products_block`,
               intro: 'Now, add an additional product to your build',
-              position: 'left'
             },
             {
               element: '.player_area',
