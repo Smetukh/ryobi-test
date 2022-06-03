@@ -241,13 +241,15 @@ export default function Ryobi() {
     onDropAny();
   }
 
+  const setIntoNextStep = () => intro.nextStep();
+
   const wallBuildProps = { TabPanel, value, fullHeightClass, wallSizes, withWallSizeChangeRejection, setWallWidth, setWallHeight, wallWidth,
     wallHeight, wall, withWallItemAddRejection, addWallRail, handleMobileClick, onDragStart, setId, isMobile, wallBuild, addWallItemById, mobileInWallItems,
-    displayItems, addFromMobileToWall, setEnabled, wallItems, setNotifyModal, enabled, intro
+    displayItems, addFromMobileToWall, setEnabled, wallItems, setNotifyModal, enabled, setIntoNextStep
   }
 
   const mobileBuildProps = { TabPanel, value, fullHeightClass, handleMobileClick, onDragStart, setId, isMobile, setEnabled, setNotifyModal,
-    withMobileItemAddRejection, rollingBase, addMobileItemById, mobileItems, rollingBaseItem, wallInMobileItems, displayItems, addFromWallToMobile, enabled, intro
+    withMobileItemAddRejection, rollingBase, addMobileItemById, mobileItems, rollingBaseItem, wallInMobileItems, displayItems, addFromWallToMobile, enabled, setIntoNextStep
   }
 
   const mobileProps = {
@@ -264,11 +266,26 @@ export default function Ryobi() {
     onDropAny
   }
 
+  intro.onchange((e) => {
+    if (e.classList[0].startsWith('arButton')) {
+      const el = document.querySelectorAll(`[class^='arButton']`);
+
+      const setViewStep = () => {
+        intro.goToStep(5).start();
+        el[0].removeEventListener("click", setViewStep);
+      }
+
+      if (!!el && !!el[0] && enabled) el[0].addEventListener("click", setViewStep)
+        e.onClick = () => {
+          setIntoNextStep();
+      }
+    }
+  })
 
   return (
     <div onTouchStart={onTouchStart} onTouchMove={onTouchMove} move={move}>
       <TourModal enabled={enabled} setEnabled={setEnabled} tabValue={value} isMobile={isMobile} intro={intro}/>
-      <FoundIssueModal setEnabled={setEnabled} intro={intro} open={notifyModal === 'welcome'} fullHeightClick={handleClick} setOpen={setNotifyModal} messagePayload={messages.welcome} isMobile={isMobile} isPlayerReady={isPlayerReady} isWelcome={true}/>
+      <FoundIssueModal setEnabled={setEnabled} open={notifyModal === 'welcome'} fullHeightClick={handleClick} setOpen={setNotifyModal} messagePayload={messages.welcome} isMobile={isMobile} isPlayerReady={isPlayerReady} isWelcome={true}/>
       <FoundIssueModal open={notifyModal === 'noSpaceWall'} setOpen={setNotifyModal} messagePayload={messages.noSpaceWall} />
       <FoundIssueModal open={notifyModal === 'noSpaceMobile'} setOpen={setNotifyModal} messagePayload={messages.noSpaceMobile} />
       <FoundIssueModal open={notifyModal === 'destructiveWallSize'} setOpen={setNotifyModal} messagePayload={messages.destructiveWallSize} />

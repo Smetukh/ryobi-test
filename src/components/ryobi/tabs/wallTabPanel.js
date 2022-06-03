@@ -32,7 +32,7 @@ const CustomTabPanel = ({
   setNotifyModal,
   index,
   enabled,
-  intro
+  setIntoNextStep
 }) => {
   return (
     <TabPanel
@@ -85,7 +85,7 @@ const CustomTabPanel = ({
                 onClick={() => {
                   withWallItemAddRejection(addWallRail);
                   if (enabled) {
-                    intro.nextStep().start();
+                    setIntoNextStep();
                   }
                 }}
               />
@@ -96,7 +96,7 @@ const CustomTabPanel = ({
                 <div onClick={() => {
                   withWallItemAddRejection(addWallRail);
                   if (enabled) {
-                    intro.nextStep().start();
+                    setIntoNextStep();
                   }
                 }}>
                   <img
@@ -112,7 +112,7 @@ const CustomTabPanel = ({
                       withWallItemAddRejection(addWallRail)
                       setId(wall[0].itemName)
                       if (enabled) {
-                        intro.nextStep().start();
+                        setIntoNextStep();
                       }
                     }
                   }><AddCircleIcon />add</div>
@@ -151,7 +151,7 @@ const CustomTabPanel = ({
                         withWallItemAddRejection(async () => addWallItemById(wall.id))
                         setId(wall.itemName)
                         if (enabled) {
-                          intro.nextStep().start();
+                          setIntoNextStep();
                         }
                       }}>
                       <img
@@ -167,7 +167,7 @@ const CustomTabPanel = ({
                           withWallItemAddRejection(async () => addWallItemById(wall.id))
                           setId(wall.itemName)
                           if (enabled) {
-                            intro.nextStep().start();
+                            setIntoNextStep();
                           }
                         }
                       }><AddCircleIcon />add</div>
