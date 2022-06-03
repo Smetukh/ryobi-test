@@ -24,7 +24,7 @@ const RollingBaseTabPanel = ({
   wallInMobileItems,
   displayItems,
   addFromWallToMobile,
-  intro,
+  setIntoNextStep,
   enabled
 }) => {
     return (
@@ -47,7 +47,7 @@ const RollingBaseTabPanel = ({
                     withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id));
                     setId(rollingBase[0].itemName);
                     if (enabled) {
-                      intro.nextStep().start();
+                      setIntoNextStep();
                     }
                   }}
                   onDragStart={onDragStart}
@@ -58,7 +58,7 @@ const RollingBaseTabPanel = ({
                       withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id))
                       setId(rollingBase[0].itemName)
                       if (enabled) {
-                        intro.nextStep().start();
+                        setIntoNextStep();
                       }
                     }
                   }><AddCircleIcon />add</div>
@@ -100,7 +100,7 @@ const RollingBaseTabPanel = ({
                         withMobileItemAddRejection(async () => addMobileItemById(rolling.id));
                         setId(rolling.itemName);
                         if (enabled) {
-                          intro.nextStep().start();
+                          setIntoNextStep();
                         }
                       }}
                       onDragStart={onDragStart}
@@ -112,7 +112,7 @@ const RollingBaseTabPanel = ({
                           withMobileItemAddRejection(async () => addMobileItemById(rolling.id))
                           setId(rolling.itemName)
                           if (enabled) {
-                            intro.nextStep().start();
+                            setIntoNextStep();
                           }
                         }
                       }><AddCircleIcon />add</div>
