@@ -267,6 +267,7 @@ export default function Ryobi() {
   }
 
   intro.onchange((e) => {
+    console.log('qqq e ===', e);
     if (e.classList[0].startsWith('arButton')) {
       const el = document.querySelectorAll(`[class^='arButton']`);
 
@@ -276,9 +277,9 @@ export default function Ryobi() {
       }
 
       if (!!el && !!el[0] && enabled) el[0].addEventListener("click", setViewStep)
-        e.onClick = () => {
-          setIntoNextStep();
-      }
+    }
+    if (e.classList[0] === 'player_area' && isMobile) {
+      window.scrollTo(0, 1000);
     }
   })
 

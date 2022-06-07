@@ -20,7 +20,8 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue, isMobil
     },
     {
       element: '.player_area',
-      intro: 'You can interact with your products in the builder.'
+      intro: 'You can interact with your products in the builder.',
+      position: 'bottom'
     },
     {
       element: `[class^='arButton']`,
@@ -39,7 +40,10 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue, isMobil
     doneLabel: 'Done',
     tooltipClass: `customTooltip`,
     buttonClass: "introjs-button",
-    exitOnOverlayClick: false
+    exitOnOverlayClick: false,
+    scrollToElement: true,
+    scrollTo: 'tooltip',
+    tooltipPosition: 'bottom'
   })
 
   useEffect(() => {
@@ -62,7 +66,8 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue, isMobil
           },
           {
             element: '.player_area',
-            intro: 'You can interact with your products in the builder.'
+            intro: 'You can interact with your products in the builder.',
+            position: 'bottom'
           },
           {
             element: `[class^='arButton']`,
@@ -78,7 +83,9 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue, isMobil
         doneLabel: 'Done',
         tooltipClass: `customTooltip`,
         buttonClass: "introjs-button",
-        exitOnOverlayClick: false
+        exitOnOverlayClick: false,
+        scrollToElement: true,
+        scrollTo: 'tooltip'
       }).start();
       } else if (tabValue === 1 && enabled) {
         intro.setOptions({
@@ -98,7 +105,8 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue, isMobil
             },
             {
               element: '.player_area',
-              intro: 'You can interact with your products in the builder.'
+              intro: 'You can interact with your products in the builder.',
+              position: 'bottom'
             },
             {
               element: `[class^='arButton']`,
@@ -114,7 +122,9 @@ export default function FoundIssueModal({ enabled, setEnabled, tabValue, isMobil
           doneLabel: 'Done',
           tooltipClass: `customTooltip`,
           buttonClass: "introjs-button",
-          exitOnOverlayClick: false
+          exitOnOverlayClick: false,
+          scrollToElement: true,
+          scrollTo: 'tooltip'
         }).start();
       }
   }, [tabValue, enabled]
