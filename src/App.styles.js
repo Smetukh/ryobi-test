@@ -1203,7 +1203,7 @@ const AppStyles = styled.div`
 	  }
 	  .mobile_style {
 	    position: absolute;
-		bottom: calc(20% - 85px);
+			bottom: calc(24.9% - 85px);
 		/* top: 80px; */
 		width: 100%;
 		}
