@@ -75,6 +75,28 @@ import W_STM813 from "./W-STM813.jpg";
 import W_STM813_2 from "./W-STM813_2.jpg";
 import W_STM813_3 from "./W-STM813_3.jpg";
 
+import W_STM815 from "./W_STM815.jpg";
+import W_STM815_2 from "./W_STM815_2.jpg";
+
+import W_STM816 from "./W_STM816.jpg";
+import W_STM816_2 from "./W_STM816_2.jpg";
+
+import W_STM817 from "./W_STM817.jpg";
+import W_STM817_2 from "./W_STM817_2.jpg";
+
+import W_STM403 from "./W_STM403.jpg";
+import W_STM403_2 from "./W_STM403_2.jpg";
+import W_STM403_3 from "./W_STM403_3.jpg";
+
+import W_STM818 from "./W_STM818.jpg";
+import W_STM818_2 from "./W_STM818_2.jpg";
+import W_STM818_3 from "./W_STM818_3.jpg";
+import W_STM818_4 from "./W_STM818_4.jpg";
+
+import W_STM819 from "./W_STM819.jpg";
+import W_STM819_2 from "./W_STM819_2.jpg";
+import W_STM819_3 from "./W_STM819_3.jpg";
+
 const media = {
   logo,
   wall,
@@ -150,6 +172,22 @@ const media = {
   W_STM813,
   W_STM813_2,
   W_STM813_3,
+  W_STM815,
+  W_STM815_2,
+  W_STM816,
+  W_STM816_2,
+  W_STM817,
+  W_STM817_2,
+  W_STM403,
+  W_STM403_2,
+  W_STM403_3,
+  W_STM818,
+  W_STM818_2,
+  W_STM818_3,
+  W_STM818_4,
+  W_STM819,
+  W_STM819_2,
+  W_STM819_3
 };
 
 export default media;

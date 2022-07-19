@@ -267,7 +267,6 @@ export default function Ryobi() {
   }
 
   intro.onchange((e) => {
-    console.log('qqq e ===', e);
     if (e.classList[0].startsWith('arButton')) {
       const el = document.querySelectorAll(`[class^='arButton']`);
 
