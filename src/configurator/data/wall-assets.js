@@ -298,5 +298,100 @@ export default [
       "hookX": 4,
       "hookY": 1
     }
+  },
+  {
+    "id": "692e3c2e-b206-4516-8eab-2e78672f3938",
+    "name": "STM815_Meta Model",
+    "metadata": {
+      "nodeBounds": "{\"nodeXLength\":0.111, \"nodeYLength\": 0.145, \"nodeZLength\":0.300}"
+    },
+    "tags": [
+      "WallBuilder"
+    ],
+    "assetType": "item",
+    "sizes": {
+      "x": 1,
+      "y": 2,
+      "hookOffsetX": 0,
+      "hookOffsetY": 1,
+      "hookX": 1,
+      "hookY": 1
+    }
+  },
+  {
+    "id": "9efca05d-c46a-4412-b119-98d859b8704e",
+    "name": "STM816_Meta Model",
+    "metadata": {
+      "nodeBounds": "{\"nodeXLength\":0.111, \"nodeYLength\": 0.145, \"nodeZLength\":0.300}"
+    },
+    "tags": [
+      "WallBuilder"
+    ],
+    "assetType": "item",
+    "sizes": {
+      "x": 1,
+      "y": 2,
+      "hookOffsetX": 0,
+      "hookOffsetY": 1,
+      "hookX": 1,
+      "hookY": 1
+    }
+  },
+  {
+    "id": "c8e477ed-9bac-4bf7-9f75-9d1214e4dbb0",
+    "name": "STM819_Meta Model",
+    "metadata": {
+      "nodeBounds": "{\"nodeXLength\":0.111, \"nodeYLength\": 0.145, \"nodeZLength\":0.300}"
+    },
+    "tags": [
+      "WallBuilder"
+    ],
+    "assetType": "item",
+    "sizes": {
+      "x": 3,
+      "y": 1,
+      "hookOffsetX": 0,
+      "hookOffsetY": 0,
+      "hookX": 3,
+      "hookY": 1
+    }
+  },
+  {
+    "id": "6013c91c-9600-4fbe-a0fd-ec325b44bc17",
+    "name": "STM818_Meta Model",
+    "metadata": {
+      "nodeBounds": "{\"nodeXLength\":0.111, \"nodeYLength\": 0.145, \"nodeZLength\":0.300}"
+    },
+    "tags": [
+      "WallBuilder"
+    ],
+    "assetType": "item",
+    "sizes": {
+      "x": 3,
+      "y": 1,
+      "hookOffsetX": 0,
+      "hookOffsetY": 0,
+      "hookX": 3,
+      "hookY": 1
+    }
+  },
+  {
+    "id": "46df065b-1d1e-4e31-98ad-a76018b68a4c",
+    "name": "STM403_Meta Model",
+    "metadata": {
+      "nodeBounds": "{\"nodeXLength\":0.111, \"nodeYLength\": 0.145, \"nodeZLength\":0.300}"
+    },
+    "tags": [
+      "WallBuilder"
+    ],
+    "assetType": "item",
+    "sizes": {
+      "x": 3,
+      "y": 1,
+      "hookOffsetX": 0,
+      "hookOffsetY": 0,
+      "hookX": 3,
+      "hookY": 1
+    }
   }
 ]
