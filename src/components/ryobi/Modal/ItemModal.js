@@ -38,12 +38,12 @@ export default function ItemModal(props) {
       {isMobile ?
         <span variant="outlined" style={{ minHeight: '32px' }} className={className} onClick={handleClickOpen}>
           <InfoIcon />
-          <span style={{ fontWeight: 'bold' }}>{props.itemName}</span>
+          <span style={{ fontWeight: 'bold' }}>INFO</span>
         </span>
         :
         <h6 variant="outlined" className={className} onClick={handleClickOpen}>
           <InfoIcon />
-          <span>{props.itemName}</span>
+          <span>INFO</span>
         </h6>
         
       }
