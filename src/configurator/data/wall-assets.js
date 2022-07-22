@@ -338,8 +338,27 @@ export default [
     }
   },
   {
-    "id": "c8e477ed-9bac-4bf7-9f75-9d1214e4dbb0",
-    "name": "STM819_Meta Model",
+    "id": "c871cea0-bede-48e9-86ad-918d7eae62e0",
+    "name": "STM817_Meta Model",
+    "metadata": {
+      "nodeBounds": "{\"nodeXLength\":0.111, \"nodeYLength\": 0.145, \"nodeZLength\":0.300}"
+    },
+    "tags": [
+      "WallBuilder"
+    ],
+    "assetType": "item",
+    "sizes": {
+      "x": 1,
+      "y": 1,
+      "hookOffsetX": 0,
+      "hookOffsetY": 0,
+      "hookX": 1,
+      "hookY": 1
+    }
+  },
+  {
+    "id": "6013c91c-9600-4fbe-a0fd-ec325b44bc17",
+    "name": "STM818_Meta Model",
     "metadata": {
       "nodeBounds": "{\"nodeXLength\":0.111, \"nodeYLength\": 0.145, \"nodeZLength\":0.300}"
     },
@@ -357,8 +376,8 @@ export default [
     }
   },
   {
-    "id": "6013c91c-9600-4fbe-a0fd-ec325b44bc17",
-    "name": "STM818_Meta Model",
+    "id": "c8e477ed-9bac-4bf7-9f75-9d1214e4dbb0",
+    "name": "STM819_Meta Model",
     "metadata": {
       "nodeBounds": "{\"nodeXLength\":0.111, \"nodeYLength\": 0.145, \"nodeZLength\":0.300}"
     },
