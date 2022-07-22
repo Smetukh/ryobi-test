@@ -118,7 +118,7 @@ const CustomTabPanel = ({
                   }><AddCircleIcon />add</div>
                   <ItemModal
                     className="addButton infoButton"
-                    itemName="INFO"
+                    itemName={wall[0].itemName}
                     storeSku={wall[0].storeSku}
                     internetNumber={wall[0].internetNumber}
                     subitemName={wall[0].subitemName}
@@ -173,7 +173,7 @@ const CustomTabPanel = ({
                       }><AddCircleIcon />add</div>
                       <ItemModal
                         className="addButton infoButton"
-                        itemName="INFO"
+                        itemName={wall.itemName}
                         storeSku={wall.storeSku}
                         internetNumber={wall.internetNumber}
                         subitemName={wall.subitemName}
@@ -237,7 +237,7 @@ const CustomTabPanel = ({
                             <div className="addButton"><AddCircleIcon />add</div>
                             <ItemModal
                               className="addButton infoButton"
-                              itemName="INFO"
+                              itemName={item.itemName}
                               storeSku={item.storeSku}
                               internetNumber={item.internetNumber}
                               subitemName={item.subitemName}
