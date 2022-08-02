@@ -846,7 +846,7 @@ const AppStyles = styled.div`
 
 	.button-style {
 	  background: rgba(34, 34, 34, 0.95);
-	  padding: 8px 20px 8px;
+	  padding: 8px 8px 8px;
 	  border: 1px solid #e1e723;
 	  box-shadow: 0 0 0 rgb(225 231 35 / 0%);
 	  color: #e1e723;
