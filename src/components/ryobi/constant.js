@@ -497,7 +497,7 @@ export const wallBuild = [
       "Compatible with RYOBI LINK Modular Storage System",
     ],
     imageName: media.W_STM819,
-    learn: "https://www.ryobitools.com/products/details/3328720982",
+    learn: "https://www.ryobitools.com/products/details/33287209828",
     buy: "https://www.homedepot.com/p/320242393",
     subItems: [
       { image: media.W_STM819 },
