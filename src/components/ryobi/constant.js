@@ -498,7 +498,7 @@ export const wallBuild = [
     ],
     imageName: media.W_STM819,
     learn: "https://www.ryobitools.com/products/details/33287209828",
-    buy: "https://www.homedepot.com/p/320242393",
+    buy: "https://www.ryobitools.com/products/details/33287209828",
     subItems: [
       { image: media.W_STM819 },
       { image: media.W_STM819_2 },
