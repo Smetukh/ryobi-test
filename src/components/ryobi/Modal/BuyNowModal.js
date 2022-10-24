@@ -57,8 +57,8 @@ export default function BuyNowModal({buyNow, intro}) {
                   </a>
                   <a href={Buy.buy} className="button-style" target="_blank" rel="noreferrer">
                     {" "}
-                    {Buy.itemName === 'STM819' ? 'Coming soon' : 'Buy Now'}
-                    {/* Buy Now */}
+                    {/*Buy.itemName === 'STM819' ? 'Coming soon' : 'Buy Now'*/}
+                    {'Buy Now'}
                   </a>
                 </div>
               </div>

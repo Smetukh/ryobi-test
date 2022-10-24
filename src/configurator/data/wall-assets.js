@@ -1,4 +1,4 @@
-export default [
+const products = [
   {
     "id": "2da02b7a-a989-4433-9bb2-52da62a498c5",
     "name": "ST504_single",
@@ -412,5 +412,27 @@ export default [
       "hookX": 3,
       "hookY": 1
     }
+  },
+  // Phase 3
+  {
+    "id": "efc931f9-b531-45dc-9a27-0d69c3a39171",
+    "name": "STM 824",
+    "metadata": {
+      "nodeBounds": "{\"nodeXLength\":0.111, \"nodeYLength\": 0.145, \"nodeZLength\":0.300}"
+    },
+    "tags": [
+      "WallBuilder"
+    ],
+    "assetType": "item",
+    "sizes": {
+      "x": 1,
+      "y": 2,
+      "hookOffsetX": 0,
+      "hookOffsetY": 1,
+      "hookX": 1,
+      "hookY": 1
+    }
   }
 ]
+
+export default products;

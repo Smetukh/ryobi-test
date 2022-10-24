@@ -462,6 +462,27 @@ export const wallBuild = [
       { image: media.W_STM817_2 }
     ],
   },
+  // LINK Phase 3
+  {
+    id: "efc931f9-b531-45dc-9a27-0d69c3a39171",
+    itemName: "STM824",
+    subitemName: "Reversible Clamp Hook",
+    storeSku: "None",
+    categoryName: 'Storage',
+    internetNumber: "None",
+    description: [
+      "Multiple Hanging Positions For Optimal Customization",
+      "Ideal For: Rakes, Brooms And RYOBI Expand-It Tools",
+      "Compatible with RYOBI LINK Modular Storage System"
+    ],
+    imageName: media.STM824_1_web_2000px,
+    learn: "https://www.ryobitools.com/products/details/33287216802",
+    buy: "None",
+    subItems: [
+      { image: media.STM824_A_web_2000px },
+    ],
+    qty: 288
+  },
   {
     id: "46df065b-1d1e-4e31-98ad-a76018b68a4c",
     itemName: "STM403",
@@ -519,7 +540,7 @@ export const wallBuild = [
     ],
     imageName: media.W_STM819,
     learn: "https://www.ryobitools.com/products/details/33287209828",
-    buy: "https://www.ryobitools.com/products/details/33287209828",
+    buy: "https://www.homedepot.com/p/320242393",
     subItems: [
       { image: media.W_STM819 },
       { image: media.W_STM819_2 },

@@ -97,6 +97,12 @@ import W_STM819 from "./W_STM819.jpg";
 import W_STM819_2 from "./W_STM819_2.jpg";
 import W_STM819_3 from "./W_STM819_3.jpg";
 
+// Phase 3
+import STM824_A_web_2000px from "./STM824_A_web_2000px.jpg";
+import STM824_1_web_2000px from "./STM824_1_web_2000px.jpg";
+// import STM824_A_web_2000px from "./STM824_A_web_2000px.jpg";
+
+
 const media = {
   logo,
   wall,
@@ -187,7 +193,11 @@ const media = {
   W_STM818_4,
   W_STM819,
   W_STM819_2,
-  W_STM819_3
+  W_STM819_3,
+
+  // Phase 3
+  STM824_A_web_2000px,
+  STM824_1_web_2000px,
 };
 
 export default media;
