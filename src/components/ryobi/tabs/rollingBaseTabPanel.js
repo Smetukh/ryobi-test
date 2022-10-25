@@ -55,11 +55,9 @@ const RollingBaseTabPanel = ({
                 <div className="cardButtons">
                   <div className="addButton" onClick={
                     () => {
-                      withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id))
-                      setId(rollingBase[0].itemName)
-                      if (enabled) {
-                        setIntoNextStep();
-                      }
+                      withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id));
+                      setId(rollingBase[0].itemName);
+                      if (enabled) setIntoNextStep();
                     }
                   }><AddCircleIcon />add</div>
                   <ItemModal
@@ -73,6 +71,48 @@ const RollingBaseTabPanel = ({
                     learn={rollingBase[0].learn}
                     buy={rollingBase[0].buy}
                     addAction={() => withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id))}
+                    isMobile={isMobile}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="base-mobile-item-container" onClick={handleMobileClick}>
+              <img src={rollingBase[1].imageName} alt="" className="100%" onClick={() => withMobileItemAddRejection(async () => addMobileItemById(rollingBase[1].id))} />
+              <div className="base-item-overlay base-mobile-item-overlay">
+                <div className="plus-add">
+                  <AddIcon className="fa-plus" />
+                </div>
+                <img
+                  src={rollingBase[1].imageName}
+                  alt="img"
+                  onClick={() => {
+                    withMobileItemAddRejection(async () => addMobileItemById(rollingBase[1].id));
+                    setId(rollingBase[1].itemName);
+                    if (enabled) {
+                      setIntoNextStep();
+                    }
+                  }}
+                  onDragStart={onDragStart}
+                />
+                <div className="cardButtons">
+                  <div className="addButton" onClick={
+                    () => {
+                      withMobileItemAddRejection(async () => addMobileItemById(rollingBase[1].id));
+                      setId(rollingBase[1].itemName);
+                      if (enabled) setIntoNextStep();
+                    }
+                  }><AddCircleIcon />add</div>
+                  <ItemModal
+                    className="addButton infoButton"
+                    itemName={rollingBase[1].itemName}
+                    storeSku={rollingBase[1].storeSku}
+                    internetNumber={rollingBase[1].internetNumber}
+                    subitemName={rollingBase[1].subitemName}
+                    subItems={rollingBase[1].subItems}
+                    description={rollingBase[1].description}
+                    learn={rollingBase[1].learn}
+                    buy={rollingBase[1].buy}
+                    addAction={() => withMobileItemAddRejection(async () => addMobileItemById(rollingBase[1].id))}
                     isMobile={isMobile}
                   />
                 </div>

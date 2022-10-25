@@ -100,7 +100,15 @@ import W_STM819_3 from "./W_STM819_3.jpg";
 // Phase 3
 import STM824_A_web_2000px from "./STM824_A_web_2000px.jpg";
 import STM824_1_web_2000px from "./STM824_1_web_2000px.jpg";
-// import STM824_A_web_2000px from "./STM824_A_web_2000px.jpg";
+import STM301_1_web_2000px from "./STM301_1_web_2000px.jpg";
+import STM301_A_web_2000px from "./STM301_A_web_2000px.jpg";
+import STM301_2v3_web_2000px from "./STM301_2v3_web_2000px.jpg";
+import STM302_1_web_2000px from "./STM302_1_web_2000px.jpg";
+import STM302_2v3_web_2000px from "./STM302_2v3_web_2000px.jpg";
+import STM302_A_web_2000px from "./STM302_A_web_2000px.jpg";
+import STM204_A_web_2000px from "./STM204_A_web_2000px.jpg";
+import STM204_4_web_2000px from "./STM204_4_web_2000px.jpg";
+import STM204_1_web_2000px from "./STM204_1_web_2000px.jpg";
 
 
 const media = {
@@ -196,8 +204,17 @@ const media = {
   W_STM819_3,
 
   // Phase 3
-  STM824_A_web_2000px,
   STM824_1_web_2000px,
+  STM824_A_web_2000px,
+  STM301_1_web_2000px,
+  STM301_A_web_2000px,
+  STM301_2v3_web_2000px,
+  STM302_1_web_2000px,
+  STM302_2v3_web_2000px,
+  STM302_A_web_2000px,
+  STM204_A_web_2000px,
+  STM204_4_web_2000px,
+  STM204_1_web_2000px
 };
 
 export default media;
