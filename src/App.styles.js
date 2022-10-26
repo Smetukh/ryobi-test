@@ -592,7 +592,7 @@ const AppStyles = styled.div`
 	  min-height: 380px;
 	  max-height: 470px;
 	  overflow: hidden;
-	  overflow-y: auto;
+	  /* overflow-y: auto; */
 	  position: relative;
 	}
 	/* width */
