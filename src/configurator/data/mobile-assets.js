@@ -22,7 +22,7 @@ const mobileAssets = [
     ]
   },
   {
-    "id": "aadf88a8-920f-4373-932b-73cbe0c1f161",
+    "id": "177732b8-1c89-43cb-8a4c-b8d8b14ab0df",
     "name": "STM 204",
     "metadata": {},
     "tags": [
