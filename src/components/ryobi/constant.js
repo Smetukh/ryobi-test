@@ -45,7 +45,7 @@ export const wallBuild = [
       "IP65 Water and Dust Resistant",
       "Compatible with RYOBI LINK Modular Storage System",
     ],
-    categoryName: 'Storage',
+    categoryName: 'Tool Boxes',
     imageName: media.W_STM101,
     learn: "https://www.ryobitools.com/products/details/33287194896",
     buy: "https://www.homedepot.com/p/317036936",
@@ -72,7 +72,7 @@ export const wallBuild = [
     itemName: "STM104",
     subitemName: "Tool Crate",
     storeSku: "1006436600",
-    categoryName: 'Storage',
+    categoryName: 'Tool Boxes',
     internetNumber: "317037013",
     description: [
       "Impact Resistant Material with a 50 Lb. Load Capacity",
@@ -132,7 +132,7 @@ export const wallBuild = [
     id: "d826ca18-7a69-4abe-8150-58e93a1a45a7",
     itemName: "STM309",
     subitemName: "Wall Small Parts Organizer",
-    categoryName: 'Shelves',
+    categoryName: 'Bin Storage',
     storeSku: "None",
     internetNumber: "323151825",
     description: [
@@ -140,55 +140,12 @@ export const wallBuild = [
       "Customize With Adjustable Dividers",
       "Compatible with RYOBI LINK Modular Storage System"
     ],
-    imageName: media.wall,
+    imageName: media.STM309_2_Final,
     learn: "www.ryobitools.com/products/details/33287215553",
     buy: "https://www.homedepot.com/p/323151825",
     subItems: [
-      { image: media.wall },
-      { image: media.wall },
-      { image: media.wall },
-    ],
-  },
-  {
-    id: "dc921c8d-561f-4b34-a76f-e2a0e75bf153",
-    itemName: "STM304",
-    subitemName: "Compact Small Parts Organizer",
-    categoryName: 'Shelves',
-    storeSku: "None",
-    internetNumber: "323151829",
-    description: [
-      "No-Travel Organizer Bins Included ",
-      "IP65 Water And Dust Resistant With A 25 Lb. Load Capacity",
-      "Compatible with RYOBI LINK Modular Storage System"
-    ],
-    imageName: media.wall,
-    learn: "www.ryobitools.com/products/details/33287199358",
-    buy: "https://www.homedepot.com/p/323151829",
-    subItems: [
-      { image: media.wall },
-      { image: media.wall },
-      { image: media.wall },
-    ],
-  },
-  {
-    id: "4f2bff27-8936-474e-9b74-e2a4a83e4869",
-    itemName: "STM303",
-    subitemName: "Small Parts Organizer",
-    categoryName: 'Shelves',
-    storeSku: "1006436593",
-    internetNumber: "317035752",
-    description: [
-      "No-Travel Organizer Bins Included ",
-      "IP65 Water And Dust Resistant With A 50 Lb. Load Capacity",
-      "Compatible with RYOBI LINK Modular Storage System"
-    ],
-    imageName: media.wall,
-    learn: "www.ryobitools.com/products/details/33287199358",
-    buy: "https://www.homedepot.com/p/323151829",
-    subItems: [
-      { image: media.wall },
-      { image: media.wall },
-      { image: media.wall },
+      { image: media.STM309_3_Final },
+      { image: media.STM309_A_web_2000px },
     ],
   },
   // Phase 3 END
@@ -370,7 +327,7 @@ export const wallBuild = [
     itemName: "STM807",
     subitemName: "Screwdriver Holder",
     storeSku: "1006744063",
-    categoryName: 'Storage',
+    categoryName: 'Hooks',
     internetNumber: "317939856",
     description: [
       "Durable Steel Construction with a 25 Lb. Weight Capacity",
@@ -432,7 +389,7 @@ export const wallBuild = [
     id: "4ea4d127-9875-47c1-880d-9812acc6ff1c",
     itemName: "STM812",
     subitemName: "Double Organizer Bin",
-    categoryName: 'Storage',
+    categoryName: 'Bin Storage',
     storeSku: "1006744106",
     internetNumber: "317939861",
     description: [
@@ -453,7 +410,7 @@ export const wallBuild = [
     id: "78fbf7e3-da63-45b1-a8bb-8a41ad5512a7",
     itemName: "STM813",
     subitemName: "Single Organizer Bin",
-    categoryName: 'Storage',
+    categoryName: 'Bin Storage',
     storeSku: "1006765215",
     internetNumber: "317939863",
     description: [
@@ -474,7 +431,7 @@ export const wallBuild = [
     id: "692e3c2e-b206-4516-8eab-2e78672f3938",
     itemName: "STM815",
     subitemName: "Reversible J Hook",
-    categoryName: 'Hooks',
+    categoryName: 'Reversible Hooks',
     storeSku: "1007711957",
     internetNumber: "320242444",
     description: [
@@ -494,7 +451,7 @@ export const wallBuild = [
     id: "9efca05d-c46a-4412-b119-98d859b8704e",
     itemName: "STM816",
     subitemName: "Reversible Tool Hook",
-    categoryName: 'Hooks',
+    categoryName: 'Reversible Hooks',
     storeSku: "1007711959",
     internetNumber: "320242495",
     description: [
@@ -515,7 +472,7 @@ export const wallBuild = [
     itemName: "STM817",
     subitemName: "ONE+ Tool Holder",
     storeSku: "1008093995",
-    categoryName: 'Storage',
+    categoryName: 'ONE+ Compatible',
     internetNumber: "320242367",
     description: [
       "Fits Most RYOBI ONE+ Tools",
@@ -536,7 +493,7 @@ export const wallBuild = [
     itemName: "STM824",
     subitemName: "Reversible Clamp Hook",
     storeSku: "None",
-    categoryName: 'Storage',
+    categoryName: 'Reversible Hooks',
     internetNumber: "None",
     description: [
       "Multiple Hanging Positions For Optimal Customization",
@@ -576,7 +533,7 @@ export const wallBuild = [
     id: "6013c91c-9600-4fbe-a0fd-ec325b44bc17",
     itemName: "STM818",
     subitemName: "ONE+ Battery Shelf",
-    categoryName: 'Shelves',
+    categoryName: 'ONE+ Compatible',
     storeSku: "1008093998",
     internetNumber: "320242643",
     description: [
@@ -598,7 +555,7 @@ export const wallBuild = [
     id: "c8e477ed-9bac-4bf7-9f75-9d1214e4dbb0",
     itemName: "STM819",
     subitemName: "40V Battery Shelf",
-    categoryName: 'Shelves',
+    categoryName: 'ONE+ Compatible',
     storeSku: "1007711956",
     internetNumber: "320242393",
     description: [
@@ -730,13 +687,12 @@ export const rollingBaseItem = [
       "IP65 Water And Dust Resistant With A 50 Lb. Load Capacity",
       "Compatible with RYOBI LINK Modular Storage System"
     ],
-    imageName: media.wall,
+    imageName: media.STM303_3_Final,
     learn: "www.ryobitools.com/products/details/33287199358",
     buy: "https://www.homedepot.com/p/323151829",
     subItems: [
-      { image: media.wall },
-      { image: media.wall },
-      { image: media.wall },
+      { image: media.STM303_2_Final },
+      { image: media.STM303_A_web_2000px },
     ],
   },
   {
@@ -750,13 +706,12 @@ export const rollingBaseItem = [
       "IP65 Water And Dust Resistant With A 25 Lb. Load Capacity",
       "Compatible with RYOBI LINK Modular Storage System"
     ],
-    imageName: media.wall,
+    imageName: media.STM304_3_Final,
     learn: "www.ryobitools.com/products/details/33287199358",
     buy: "https://www.homedepot.com/p/323151829",
     subItems: [
-      { image: media.wall },
-      { image: media.wall },
-      { image: media.wall },
+      { image: media.STM304_2_Final },
+      { image: media.STM304_A_web_2000px },
     ],
   },
   {
@@ -908,13 +863,12 @@ export const mobileBuild = [
       "IP65 Water And Dust Resistant With A 50 Lb. Load Capacity",
       "Compatible with RYOBI LINK Modular Storage System"
     ],
-    imageName: media.wall,
+    imageName: media.STM303_3_Final,
     learn: "www.ryobitools.com/products/details/33287199358",
     buy: "https://www.homedepot.com/p/323151829",
     subItems: [
-      { image: media.wall },
-      { image: media.wall },
-      { image: media.wall },
+      { image: media.STM303_2_Final },
+      { image: media.STM303_A_web_2000px },
     ],
   },
   {
@@ -1061,13 +1015,12 @@ export const BuyNow = [
       "IP65 Water And Dust Resistant With A 50 Lb. Load Capacity",
       "Compatible with RYOBI LINK Modular Storage System"
     ],
-    imageName: media.wall,
+    imageName: media.STM303_3_Final,
     learn: "www.ryobitools.com/products/details/33287199358",
     buy: "https://www.homedepot.com/p/323151829",
     subItems: [
-      { image: media.wall },
-      { image: media.wall },
-      { image: media.wall },
+      { image: media.STM303_2_Final },
+      { image: media.STM303_A_web_2000px },
     ],
     qty: 288
   },

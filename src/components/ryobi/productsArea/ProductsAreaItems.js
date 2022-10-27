@@ -4,7 +4,6 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import ItemModal from '../Modal/ItemModal';
 
 const ProductsAreaItems = ({
-  i,
   handleMobileClick,
   withWallItemAddRejection,
   addWallItemById,

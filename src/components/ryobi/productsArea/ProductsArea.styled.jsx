@@ -30,7 +30,7 @@ export const Input = styled.input`
   color: #2d2926;
   font-family: "FuturaPT-Medium";
   font-size: 15px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-right: none;
   z-index: 1;

@@ -4,6 +4,7 @@ import ProductsAreaItems from './ProductsAreaItems';
 import ProductsAreaItemsMobile from './ProductsAreaItemsMobile';
 
 import { AccordionsWrapper, Input, InputWrapper, SearchIcon } from './ProductsArea.styled';
+import { Summarize } from '@mui/icons-material';
 
 const ProductsArea = ({
   wallBuild,
@@ -19,48 +20,44 @@ const ProductsArea = ({
   displayItems,
   addFromMobileToWall
 }) => {
-  const [expanded, setExpanded] = React.useState('Storage');
+  const [expanded, setExpanded] = React.useState(null);
   const [inputValue, setInputValue] = React.useState('');
 
-  const handleChangeInput = (e) => {
-    setInputValue(e.target.value);
-  }
-
-  const handleChangeAccordion = (panel) => (event, newExpanded) => {
+  
+  const reg = new RegExp(inputValue.toLowerCase());
+  const accordions = wallBuild.reduce(function(sum, current) {
+    const isMatch = reg.test(current.subitemName.toLowerCase());
+    if (isMatch) {
+      const hasKey = current.categoryName in sum;
+      if (!hasKey) return { ...sum, [current.categoryName]: [current] };
+      return { ...sum, [current.categoryName]: [ ...sum[current.categoryName], current] }
+    }
+    return sum;
+  }, {});
+  
+  const handleChangeAccordion = (panel) => (event, newExpanded) => {    
     setExpanded(newExpanded ? panel : false);
   };
-
-  const accordions = [
-    {
-      name: 'Storage',
-      title: 'STORAGE'
-    },
-    {
-      name: 'Hooks',
-      title: 'WALL HOOKS'
-    },
-    {
-      name: 'Shelves',
-      title: 'SHELVES'
-    }
-  ]
+  const handleChangeInput = (e) => {
+    setInputValue(e.target.value);
+    // if (!!e.target.value.length) handleChangeAccordion(Object.keys(accordions)[0]); // open first accordion on search
+  }
 
   return (
     <div className="wall_products">
       <InputWrapper>
-        <Input type='text' value={inputValue} onChange={handleChangeInput}></Input>
+        <Input type='text' value={inputValue} placeholder='Search products' onChange={handleChangeInput}></Input>
         <SearchIcon fontSize='large' />
       </InputWrapper>
       <AccordionsWrapper>
-        {accordions.map((accordion) => {
-          const { name, title } = accordion;
+        {Object.keys(accordions).map((key) => {
           return (
-            <MaterialAccordion key={name} name={name} title={title} expanded={expanded} handleChange={handleChangeAccordion}>
+            <MaterialAccordion key={key} name={key} title={key} expanded={expanded} handleChange={handleChangeAccordion}>
               <div className="products_area">
                 <div className="row  margin_removed" style={{ position: 'relative' }}>
-                  {wallBuild.map((wall, i) => {
+                  {accordions[key].map((wall, i) => {
                     const productsAreaItemsProps = {
-                      i,
+                      key: i,
                       handleMobileClick,
                       withWallItemAddRejection,
                       addWallItemById,
@@ -71,11 +68,7 @@ const ProductsArea = ({
                       onDragStart,
                       isMobile
                     }
-                    const reg = new RegExp(inputValue.toLowerCase());
-                    const isMatch = reg.test(wall.subitemName.toLowerCase());
-                    return (
-                      wall.categoryName === name && isMatch && <ProductsAreaItems { ...productsAreaItemsProps } key={i.toString()} />
-                    )
+                    return <ProductsAreaItems { ...productsAreaItemsProps } />;
                   })}
                 </div>
                 {!!mobileInWallItems.length &&

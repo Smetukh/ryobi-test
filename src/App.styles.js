@@ -589,7 +589,7 @@ const AppStyles = styled.div`
 	}
 	.products_area {
 	  padding: 0px 13px 13px;
-	  min-height: 380px;
+	  /* min-height: 380px; */
 	  max-height: 470px;
 	  overflow: hidden;
 	  /* overflow-y: auto; */
@@ -754,7 +754,7 @@ const AppStyles = styled.div`
 	}
 	.dashed_border-bottom {
 	  border-bottom: 1px dashed #ccc;
-	  padding: 0 0 20px 0;
+	  padding: 0 0 32px 0;
 	}
 	.dashed_border-top {
 	  border-top: 1px dashed #ccc;

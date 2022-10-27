@@ -158,7 +158,7 @@ const RollingBaseTabPanel = ({
                       }><AddCircleIcon />add</div>
                       <ItemModal
                         className="addButton infoButton"
-                        itemName={rollingBase[0].itemName}
+                        itemName={rolling.itemName}
                         storeSku={rolling.storeSku}
                         internetNumber={rolling.internetNumber}
                         subitemName={rolling.subitemName}
