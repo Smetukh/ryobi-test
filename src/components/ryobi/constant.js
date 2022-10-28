@@ -45,7 +45,7 @@ export const wallBuild = [
       "IP65 Water and Dust Resistant",
       "Compatible with RYOBI LINK Modular Storage System",
     ],
-    categoryName: 'Tool Boxes',
+    categoryName: 'TOOL BOXES',
     imageName: media.W_STM101,
     learn: "https://www.ryobitools.com/products/details/33287194896",
     buy: "https://www.homedepot.com/p/317036936",
@@ -72,7 +72,7 @@ export const wallBuild = [
     itemName: "STM104",
     subitemName: "Tool Crate",
     storeSku: "1006436600",
-    categoryName: 'Tool Boxes',
+    categoryName: 'TOOL BOXES',
     internetNumber: "317037013",
     description: [
       "Impact Resistant Material with a 50 Lb. Load Capacity",
@@ -88,7 +88,7 @@ export const wallBuild = [
     id: "90eb6dc2-1f6e-42e4-9a86-17ae9b680ad7",
     itemName: "STM401",
     subitemName: "Tool Organizer Shelf",
-    categoryName: 'Shelves',
+    categoryName: 'SHELVES',
     storeSku: "1006743986",
     internetNumber: "317939878",
     description: [
@@ -109,7 +109,7 @@ export const wallBuild = [
     id: "59d32cae-6f6e-43fa-bef9-ee127bc57c71",
     itemName: "STM402",
     subitemName: "Hanging Shelf",
-    categoryName: 'Shelves',
+    categoryName: 'SHELVES',
     storeSku: "1006743992",
     internetNumber: "317939879",
     description: [
@@ -132,7 +132,7 @@ export const wallBuild = [
     id: "d826ca18-7a69-4abe-8150-58e93a1a45a7",
     itemName: "STM309",
     subitemName: "Wall Small Parts Organizer",
-    categoryName: 'Bin Storage',
+    categoryName: 'BIN STORAGE',
     storeSku: "None",
     internetNumber: "323151825",
     description: [
@@ -200,7 +200,7 @@ export const wallBuild = [
     id: "c9fd18ab-7923-4b54-859f-2988d5d33782",
     itemName: "STM801",
     subitemName: "Power Tool Hook",
-    categoryName: 'Hooks',
+    categoryName: 'HOOKS',
     storeSku: "1006743995",
     internetNumber: "317939852",
     description: [
@@ -221,7 +221,7 @@ export const wallBuild = [
     id: "37f17c16-d5e7-4518-842c-f3597b0cef65",
     itemName: "STM802",
     subitemName: "S Hook",
-    categoryName: 'Hooks',
+    categoryName: 'HOOKS',
     storeSku: "1006743999",
     internetNumber: "317939853",
     description: [
@@ -242,7 +242,7 @@ export const wallBuild = [
     id: "2f49b516-a5be-4068-b29c-04b0ab08e31a",
     itemName: "STM803",
     subitemName: "Large Power Tool Hook",
-    categoryName: 'Hooks',
+    categoryName: 'HOOKS',
     storeSku: "1006744002",
     internetNumber: "317939860",
     description: [
@@ -263,7 +263,7 @@ export const wallBuild = [
     id: "a933c152-51e2-4243-8cd4-fba3e1dda9bc",
     itemName: "STM804",
     subitemName: "XL Multipurpose Hook",
-    categoryName: 'Hooks',
+    categoryName: 'HOOKS',
     storeSku: "1006744006",
     internetNumber: "317939862",
     description: [
@@ -284,7 +284,7 @@ export const wallBuild = [
     id: "bacdc95d-bfa0-4f59-abe2-ac924e71df7a",
     itemName: "STM805",
     subitemName: "Utility Hook",
-    categoryName: 'Hooks',
+    categoryName: 'HOOKS',
     storeSku: "1006744020",
     internetNumber: "317939858",
     description: [
@@ -305,7 +305,7 @@ export const wallBuild = [
     id: "1a73a4b8-e922-4ead-9062-b82678be7710",
     itemName: "STM806",
     subitemName: "Standard Hook Set",
-    categoryName: 'Hooks',
+    categoryName: 'HOOKS',
     storeSku: "1006744023",
     internetNumber: "317939859",
     description: [
@@ -327,7 +327,7 @@ export const wallBuild = [
     itemName: "STM807",
     subitemName: "Screwdriver Holder",
     storeSku: "1006744063",
-    categoryName: 'Hooks',
+    categoryName: 'HOOKS',
     internetNumber: "317939856",
     description: [
       "Durable Steel Construction with a 25 Lb. Weight Capacity",
@@ -347,7 +347,7 @@ export const wallBuild = [
     id: "e4af2fa6-f48d-4a3c-8cae-7cde2ce5a061",
     itemName: "STM809",
     subitemName: "Bicycle Hook",
-    categoryName: 'Hooks',
+    categoryName: 'HOOKS',
     storeSku: "1006744065",
     internetNumber: "317939857",
     description: [
@@ -368,7 +368,7 @@ export const wallBuild = [
     id: "f1566246-6262-4d5d-b9ed-7291ca3f8b6e",
     itemName: "STM810",
     subitemName: "Double Hook",
-    categoryName: 'Hooks',
+    categoryName: 'HOOKS',
     storeSku: "1006744069",
     internetNumber: "317939854",
     description: [
@@ -389,7 +389,7 @@ export const wallBuild = [
     id: "4ea4d127-9875-47c1-880d-9812acc6ff1c",
     itemName: "STM812",
     subitemName: "Double Organizer Bin",
-    categoryName: 'Bin Storage',
+    categoryName: 'BIN STORAGE',
     storeSku: "1006744106",
     internetNumber: "317939861",
     description: [
@@ -410,7 +410,7 @@ export const wallBuild = [
     id: "78fbf7e3-da63-45b1-a8bb-8a41ad5512a7",
     itemName: "STM813",
     subitemName: "Single Organizer Bin",
-    categoryName: 'Bin Storage',
+    categoryName: 'BIN STORAGE',
     storeSku: "1006765215",
     internetNumber: "317939863",
     description: [
@@ -431,7 +431,7 @@ export const wallBuild = [
     id: "692e3c2e-b206-4516-8eab-2e78672f3938",
     itemName: "STM815",
     subitemName: "Reversible J Hook",
-    categoryName: 'Reversible Hooks',
+    categoryName: 'REVERSIBLE HOOKS',
     storeSku: "1007711957",
     internetNumber: "320242444",
     description: [
@@ -451,7 +451,7 @@ export const wallBuild = [
     id: "9efca05d-c46a-4412-b119-98d859b8704e",
     itemName: "STM816",
     subitemName: "Reversible Tool Hook",
-    categoryName: 'Reversible Hooks',
+    categoryName: 'REVERSIBLE HOOKS',
     storeSku: "1007711959",
     internetNumber: "320242495",
     description: [
@@ -470,9 +470,9 @@ export const wallBuild = [
   {
     id: "c871cea0-bede-48e9-86ad-918d7eae62e0",
     itemName: "STM817",
-    subitemName: "ONE+ Tool Holder",
+    subitemName: "ONE+ TOOL HOLDER",
     storeSku: "1008093995",
-    categoryName: 'ONE+ Compatible',
+    categoryName: 'ONE+ COMPATIBLE',
     internetNumber: "320242367",
     description: [
       "Fits Most RYOBI ONE+ Tools",
@@ -493,7 +493,7 @@ export const wallBuild = [
     itemName: "STM824",
     subitemName: "Reversible Clamp Hook",
     storeSku: "None",
-    categoryName: 'Reversible Hooks',
+    categoryName: 'REVERSIBLE HOOKS',
     internetNumber: "None",
     description: [
       "Multiple Hanging Positions For Optimal Customization",
@@ -512,7 +512,7 @@ export const wallBuild = [
     id: "46df065b-1d1e-4e31-98ad-a76018b68a4c",
     itemName: "STM403",
     subitemName: "Cleaning Shelf",
-    categoryName: 'Shelves',
+    categoryName: 'SHELVES',
     storeSku: "1007711960",
     internetNumber: "320242645",
     description: [
@@ -533,7 +533,7 @@ export const wallBuild = [
     id: "6013c91c-9600-4fbe-a0fd-ec325b44bc17",
     itemName: "STM818",
     subitemName: "ONE+ Battery Shelf",
-    categoryName: 'ONE+ Compatible',
+    categoryName: 'ONE+ COMPATIBLE',
     storeSku: "1008093998",
     internetNumber: "320242643",
     description: [
@@ -555,7 +555,7 @@ export const wallBuild = [
     id: "c8e477ed-9bac-4bf7-9f75-9d1214e4dbb0",
     itemName: "STM819",
     subitemName: "40V Battery Shelf",
-    categoryName: 'ONE+ Compatible',
+    categoryName: 'ONE+ COMPATIBLE',
     storeSku: "1007711956",
     internetNumber: "320242393",
     description: [
@@ -1028,7 +1028,7 @@ export const BuyNow = [
     id: "dc921c8d-561f-4b34-a76f-e2a0e75bf153",
     itemName: "STM304",
     subitemName: "Compact Small Parts Organizer",
-    categoryName: 'Shelves',
+    categoryName: 'SHELVES',
     storeSku: "None",
     internetNumber: "323151829",
     description: [
