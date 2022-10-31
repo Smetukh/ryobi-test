@@ -25,14 +25,15 @@ export default function ItemModal(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  const { description, className, isMobile } = props;
+  const { description, className, isMobile, itemName, storeSku, internetNumber } = props;
 
   const {
     dataStore
   } = React.useContext(ConfiguratorContext)
   
   const {onLearnMoreClicked, onBuyNowClicked} = dataStore.hostContext
-  
+  const skuText = !!storeSku ? ` | Store Sku #${props.storeSku}` : '';
+  const internetText = !!internetNumber ? ` | Internet #${props.internetNumber}` : '';
   return (
     <>
       {isMobile ?
@@ -90,9 +91,7 @@ export default function ItemModal(props) {
           <div className="right_side">
             <div className="column-two inner-modal-item">
               <div className="prdouct-title">{props.subitemName}</div>
-              <h4>
-                Model #{props.itemName} | Store Sku #{props.storeSku} | Internet
-                #{props.internetNumber}
+              <h4>{`Model #${itemName}${skuText}${internetText}`}
               </h4>
               <ul>
                 {description &&

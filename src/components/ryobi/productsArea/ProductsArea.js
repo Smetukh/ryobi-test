@@ -25,6 +25,7 @@ const ProductsArea = ({
 
   
   const reg = new RegExp(inputValue.toLowerCase());
+  // group products by categoryName
   const accordions = wallBuild.reduce(function(sum, current) {
     const isMatch = reg.test(current.subitemName.toLowerCase());
     if (isMatch) {

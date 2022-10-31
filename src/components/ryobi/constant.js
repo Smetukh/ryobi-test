@@ -133,7 +133,7 @@ export const wallBuild = [
     itemName: "STM309",
     subitemName: "Wall Small Parts Organizer",
     categoryName: 'BIN STORAGE',
-    storeSku: "None",
+    storeSku: "",
     internetNumber: "323151825",
     description: [
       "Easily Access Parts With Removable Tilt Bins",
@@ -492,9 +492,9 @@ export const wallBuild = [
     id: "efc931f9-b531-45dc-9a27-0d69c3a39171",
     itemName: "STM824",
     subitemName: "Reversible Clamp Hook",
-    storeSku: "None",
+    storeSku: "",
     categoryName: 'REVERSIBLE HOOKS',
-    internetNumber: "None",
+    internetNumber: "",
     description: [
       "Multiple Hanging Positions For Optimal Customization",
       "Ideal For: Rakes, Brooms And RYOBI Expand-It Tools",
@@ -502,7 +502,7 @@ export const wallBuild = [
     ],
     imageName: media.STM824_1_web_2000px,
     learn: "https://www.ryobitools.com/products/details/33287216802",
-    buy: "None",
+    buy: "https://www.homedepot.com/",
     subItems: [
       { image: media.STM824_A_web_2000px },
     ],
@@ -610,7 +610,7 @@ export const rollingBase = [
     itemName: "STM 204",
     imageName: media.STM204_1_web_2000px,
     subitemName: "Rolling Tool Box",
-    storeSku: "None",
+    storeSku: "",
     internetNumber: "323151823",
     description: [
       "Impact Resistant Material with a 200 lb. Load Capacity",
@@ -699,7 +699,7 @@ export const rollingBaseItem = [
     id: "dc921c8d-561f-4b34-a76f-e2a0e75bf153",
     itemName: "STM304",
     subitemName: "Compact Small Parts Organizer",
-    storeSku: "None",
+    storeSku: "",
     internetNumber: "323151829",
     description: [
       "No-Travel Organizer Bins Included ",
@@ -718,7 +718,7 @@ export const rollingBaseItem = [
     id: "aefc42a1-8ba1-4019-abd8-09eab26aa91d",
     itemName: "STM301",
     subitemName: "2-Drawer Tool Box",
-    storeSku: "None",
+    storeSku: "",
     internetNumber: "323151824",
     description: [
       "Impact Resistant Material With Full Extension Slides",
@@ -737,7 +737,7 @@ export const rollingBaseItem = [
     id: "428cacdc-55a7-4746-b1cf-c61c3b3c7a76",
     itemName: "STM 302",
     subitemName: "2-Drawer Tool Box",
-    storeSku: "None",
+    storeSku: "",
     internetNumber: "323151824",
     description: [
       "Impact Resistant Material With Full Extension Slides",
@@ -789,7 +789,7 @@ export const mobileBuild = [
     itemName: "STM 204",
     imageName: media.STM204_1_web_2000px,
     subitemName: "Rolling Tool Box",
-    storeSku: "None",
+    storeSku: "",
     internetNumber: "323151823",
     description: [
       "Impact Resistant Material with a 200 lb. Load Capacity",
@@ -875,7 +875,7 @@ export const mobileBuild = [
     id: "dc921c8d-561f-4b34-a76f-e2a0e75bf153",
     itemName: "STM304",
     subitemName: "Compact Small Parts Organizer",
-    storeSku: "None",
+    storeSku: "",
     internetNumber: "323151829",
     description: [
       "No-Travel Organizer Bins Included ",
@@ -895,7 +895,7 @@ export const mobileBuild = [
     id: "aefc42a1-8ba1-4019-abd8-09eab26aa91d",
     itemName: "STM301",
     subitemName: "2-Drawer Tool Box",
-    storeSku: "None",
+    storeSku: "",
     internetNumber: "323151824",
     description: [
       "Impact Resistant Material With Full Extension Slides",
@@ -914,7 +914,7 @@ export const mobileBuild = [
     id: "428cacdc-55a7-4746-b1cf-c61c3b3c7a76",
     itemName: "STM 302",
     subitemName: "2-Drawer Tool Box",
-    storeSku: "None",
+    storeSku: "",
     internetNumber: "323151824",
     description: [
       "Impact Resistant Material With Full Extension Slides",
@@ -1029,7 +1029,7 @@ export const BuyNow = [
     itemName: "STM304",
     subitemName: "Compact Small Parts Organizer",
     categoryName: 'SHELVES',
-    storeSku: "None",
+    storeSku: "",
     internetNumber: "323151829",
     description: [
       "No-Travel Organizer Bins Included ",
@@ -1050,7 +1050,7 @@ export const BuyNow = [
     id: "aefc42a1-8ba1-4019-abd8-09eab26aa91d",
     itemName: "STM301",
     subitemName: "2-Drawer Tool Box",
-    storeSku: "None",
+    storeSku: "",
     internetNumber: "323151824",
     description: [
       "Impact Resistant Material With Full Extension Slides",
@@ -1070,7 +1070,7 @@ export const BuyNow = [
     id: "428cacdc-55a7-4746-b1cf-c61c3b3c7a76",
     itemName: "STM 302",
     subitemName: "2-Drawer Tool Box",
-    storeSku: "None",
+    storeSku: "",
     internetNumber: "323151824",
     description: [
       "Impact Resistant Material With Full Extension Slides",
