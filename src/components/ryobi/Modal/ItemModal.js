@@ -91,7 +91,7 @@ export default function ItemModal(props) {
           <div className="right_side">
             <div className="column-two inner-modal-item">
               <div className="prdouct-title">{props.subitemName}</div>
-              <h4>{`Model #${itemName}${skuText}${internetText}`}
+              <h4>{`Model #${itemName}`}
               </h4>
               <ul>
                 {description &&
@@ -100,10 +100,11 @@ export default function ItemModal(props) {
             </div>
 
             <div className="Item-full-buttons Item-inner-buttons">
-              <button role="button" className="button-style" target="_blank" onClick={async () => {
-                await props.addAction()
-                setOpen(false)
-              }}>
+              <button role="button" className="button-style" target="_blank"
+                onClick={async () => {
+                  await props.addAction();
+                  setOpen(false);
+                }}>
                 <AddIcon className="fa-plus" />
                 ADD To Build
               </button>
