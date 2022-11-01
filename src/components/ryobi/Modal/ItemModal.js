@@ -32,8 +32,7 @@ export default function ItemModal(props) {
   } = React.useContext(ConfiguratorContext)
   
   const {onLearnMoreClicked, onBuyNowClicked} = dataStore.hostContext
-  const skuText = !!storeSku ? ` | Store Sku #${props.storeSku}` : '';
-  const internetText = !!internetNumber ? ` | Internet #${props.internetNumber}` : '';
+
   return (
     <>
       {isMobile ?
@@ -115,7 +114,7 @@ export default function ItemModal(props) {
                 <span onClick={() => onLearnMoreClicked(props.storeSku, props.internetNumber)}>Learn More</span>
               </a>
               <a href={props.buy} className="button-style" target="_blank" rel="noreferrer">
-                <span onClick={() => onBuyNowClicked(props.storeSku, props.internetNumber)}>{props.itemName === 'STM819' ? 'Buy Now' : 'Buy Now'}</span>
+                <span onClick={() => onBuyNowClicked(storeSku, internetNumber)}>{itemName === 'STM819' ? 'Buy Now' : 'Buy Now'}</span>
               </a>
             </div>
           </div>

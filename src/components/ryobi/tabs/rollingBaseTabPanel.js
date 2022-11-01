@@ -4,6 +4,8 @@ import AddIcon from "@mui/icons-material/Add";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RefreshIcon from "@mui/icons-material/Refresh";
 import ItemModal from '../Modal/ItemModal';
+import mobileAssets from '../../../configurator/data/mobile-assets';
+import { MobileItemContainer, ProductInfo } from './rollingBaseTabPanel.styled';
 
 const RollingBaseTabPanel = ({
   TabPanel,
@@ -123,56 +125,65 @@ const RollingBaseTabPanel = ({
             <div className="products_block">
             <div className="row  margin_removed pb-2">
               {!mobileItems.length && <div className="item-block-overlay">Please select the Base to get started with your Mobile Build.</div>}
-              {rollingBaseItem.map((rolling, i) => (
-                <div
-                  className="col-sm-4 col-6"
-                  key={rolling.id}
-                >
-                  <div className="product_info" onClick={handleMobileClick}>
-                    <div className="plus-add">
-                      <AddIcon className="fa-plus" />
-                    </div>
-                    <img
-                      src={rolling.imageName}
-                      alt="img"
-                      className="w-100"
-                      onClick={() => {
-                        withMobileItemAddRejection(async () => addMobileItemById(rolling.id));
-                        setId(rolling.itemName);
-                        if (enabled) {
-                          setIntoNextStep();
-                        }
-                      }}
-                      onDragStart={onDragStart}
-                      draggable='true' id={rolling.id}
-                    />
-                    <div className="cardButtons">
-                      <div className="addButton" onClick={
-                        () => {
-                          withMobileItemAddRejection(async () => addMobileItemById(rolling.id))
-                          setId(rolling.itemName)
+              {rollingBaseItem.map((rolling, i) => {
+                let isAllowed;
+                const mobileTopProduct = mobileItems[mobileItems.length - 1]; // take last selected product
+                if (mobileTopProduct) {
+                  const mobileTopProductData = mobileAssets.find(i => i.id === mobileTopProduct.itemId);
+                  isAllowed = mobileTopProductData.allowed.includes(rolling.id); // check if other products are allowed to place on top of it
+                }
+                return (
+                  <MobileItemContainer
+                    isAllowed={isAllowed}
+                    className="col-sm-4 col-6"
+                    key={rolling.id}
+                  >
+                    <ProductInfo className="product_info" isAllowed={isAllowed} onClick={handleMobileClick}>
+                      <div className="plus-add">
+                        <AddIcon className="fa-plus" />
+                      </div>
+                      <img
+                        src={rolling.imageName}
+                        alt="img"
+                        className="w-100"
+                        onClick={() => {
+                          withMobileItemAddRejection(async () => addMobileItemById(rolling.id));
+                          setId(rolling.itemName);
                           if (enabled) {
                             setIntoNextStep();
                           }
-                        }
-                      }><AddCircleIcon />add</div>
-                      <ItemModal
-                        className="addButton infoButton"
-                        itemName={rolling.itemName}
-                        storeSku={rolling.storeSku}
-                        internetNumber={rolling.internetNumber}
-                        subitemName={rolling.subitemName}
-                        subItems={rolling.subItems}
-                        description={rolling.description}
-                        learn={rolling.learn}
-                        buy={rolling.buy}
-                        addAction={() => withMobileItemAddRejection(async () => addMobileItemById(rolling.id))}
-                        isMobile={isMobile}
+                        }}
+                        onDragStart={onDragStart}
+                        draggable='true' id={rolling.id}
                       />
-                    </div>
-                  </div>
-                </div>
-              ))}
+                      <div className="cardButtons">
+                        <div className="addButton" onClick={
+                          () => {
+                            withMobileItemAddRejection(async () => addMobileItemById(rolling.id))
+                            setId(rolling.itemName)
+                            if (enabled) {
+                              setIntoNextStep();
+                            }
+                          }
+                        }><AddCircleIcon />add</div>
+                        <ItemModal
+                          className="addButton infoButton"
+                          itemName={rolling.itemName}
+                          storeSku={rolling.storeSku}
+                          internetNumber={rolling.internetNumber}
+                          subitemName={rolling.subitemName}
+                          subItems={rolling.subItems}
+                          description={rolling.description}
+                          learn={rolling.learn}
+                          buy={rolling.buy}
+                          addAction={() => withMobileItemAddRejection(async () => addMobileItemById(rolling.id))}
+                          isMobile={isMobile}
+                        />
+                      </div>
+                    </ProductInfo>
+                  </MobileItemContainer>
+                )}
+              )}
             </div>
             {!!wallInMobileItems.length &&
               <div className="row  margin_removed dashed_border-top pt-3">
