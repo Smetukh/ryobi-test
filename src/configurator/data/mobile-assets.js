@@ -61,7 +61,7 @@ const mobileAssets = [
       "5fa56a50-b818-4af8-9150-daaeb9df5add",
       "6d8fb1a2-3ddf-4bbb-b423-f399af444d15",
       "4f2bff27-8936-474e-9b74-e2a4a83e4869",
-      "dc921c8d-561f-4b34-a76f-e2a0e75bf153", // has partials
+      // "dc921c8d-561f-4b34-a76f-e2a0e75bf153", // not allowed
       // "aefc42a1-8ba1-4019-abd8-09eab26aa91d", // not allowed
       // "428cacdc-55a7-4746-b1cf-c61c3b3c7a76" // not allowed
     ],
