@@ -16,18 +16,15 @@ const ProductsAreaItems = ({
 }) => {
   return (
     <div className="col-sm-4 col-6">
-      <div className="product_info" onClick={handleMobileClick}>
+      <div className="product_info">
         <div className="plus-add">
           <AddIcon className="fa-plus" />
         </div>
-        <div
-          onClick={() => {
-            withWallItemAddRejection(async () => addWallItemById(wall.id))
-            setId(wall.itemName)
-            if (enabled) {
-              setIntoNextStep();
-            }
-          }}>
+        <div onClick={() => {
+          withWallItemAddRejection(async () => addWallItemById(wall.id));
+          setId(wall.itemName);
+          if (enabled) setIntoNextStep();
+        }}>
           <img
             src={wall.imageName}
             alt="img"
@@ -36,13 +33,11 @@ const ProductsAreaItems = ({
           />
         </div>
         <div className="cardButtons">
-          <div className="addButton" onClick={
-            () => {
-              withWallItemAddRejection(async () => addWallItemById(wall.id))
-              setId(wall.itemName)
-              if (enabled) {
-                setIntoNextStep();
-              }
+          <div className="addButton"
+            onClick={() => {
+              withWallItemAddRejection(async () => addWallItemById(wall.id));
+              setId(wall.itemName);
+              if (enabled) setIntoNextStep();
             }
           }><AddCircleIcon />add</div>
           <ItemModal

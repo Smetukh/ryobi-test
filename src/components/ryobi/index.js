@@ -122,7 +122,7 @@ export default function Ryobi() {
       setNotifyModal('noSpaceWall')
     } else {
       handleClickBar();
-      handleMobileClick();
+      // handleMobileClick();
     }
   }
 
@@ -131,7 +131,7 @@ export default function Ryobi() {
       setNotifyModal('noSpaceMobile')
     } else {
       handleClickBar();
-      handleMobileClick();
+      // handleMobileClick();
     }
   }
 

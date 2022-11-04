@@ -11,12 +11,12 @@ const ProductsAreaItemsMobile = ({
 }) => {
   return (
     <div className="col-sm-4 col-6">
-      <div className="product_info" onClick={handleMobileClick}>
+      <div className="product_info">
         <img
           src={item.imageName}
           alt="img"
           className="w-100"
-          onClick={() => withWallItemAddRejection(async () => addFromMobileToWall(item.id))}
+          onClick={() => { withWallItemAddRejection(async () => addFromMobileToWall(item.id)); }}
         />
         <div className="cardButtons">
           <div className="addButton"><AddCircleIcon />add</div>
@@ -30,7 +30,7 @@ const ProductsAreaItemsMobile = ({
             description={item.description}
             learn={item.learn}
             buy={item.buy}
-            addAction={() => withWallItemAddRejection(async () => addFromMobileToWall(item.id))}
+            addAction={() => { withWallItemAddRejection(async () => addFromMobileToWall(item.id)); }}
             isMobile={isMobile}
           />
         </div>

@@ -51,6 +51,46 @@ export const wallBuild = [
     buy: "https://www.homedepot.com/p/317036936",
     subItems: [{ image: media.W_STM101 }, { image: media.W_STM101_2 }],
   },
+  {
+    id: "cffca302-8dd9-4a00-964c-c94478d0594f",
+    itemName: "STM303",
+    subitemName: "Small Parts Organizer",
+    storeSku: "1006436593",
+    internetNumber: "317035752",
+    description: [
+      "No-Travel Organizer Bins Included ",
+      "IP65 Water And Dust Resistant With A 50 Lb. Load Capacity",
+      "Compatible with RYOBI LINK Modular Storage System"
+    ],
+    categoryName: 'TOOL BOXES',
+    imageName: media.STM303_3_Final,
+    learn: "www.ryobitools.com/products/details/33287199358",
+    buy: "https://www.homedepot.com/p/323151829",
+    subItems: [
+      { image: media.STM303_2_Final },
+      { image: media.STM303_A_web_2000px },
+    ],
+  },
+  {
+    id: "ced08156-cdb4-4a4a-9d2e-3d21e3eae142",
+    itemName: "STM304",
+    categoryName: 'TOOL BOXES',
+    subitemName: "Compact Small Parts Organizer",
+    storeSku: "",
+    internetNumber: "323151829",
+    description: [
+      "No-Travel Organizer Bins Included ",
+      "IP65 Water And Dust Resistant With A 25 Lb. Load Capacity",
+      "Compatible with RYOBI LINK Modular Storage System"
+    ],
+    imageName: media.STM304_3_Final,
+    learn: "www.ryobitools.com/products/details/33287199358",
+    buy: "https://www.homedepot.com/p/323151829",
+    subItems: [
+      { image: media.STM304_2_Final },
+      { image: media.STM304_A_web_2000px },
+    ],
+  },
   // not included as too heavy
   // {
   //   itemName: "STM102",

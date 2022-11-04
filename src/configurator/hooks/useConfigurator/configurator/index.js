@@ -576,41 +576,38 @@ function makeStack() {
 }
 
 async function addMobileItemById(itemId, mobileAssets, stack) {
+  const item = mobileAssets.find(item => item.id === itemId);
+  if (!stack.length && item.assetType !== 'base') return {};
+  if (stack.length > 6) return {};
 
-  const item = mobileAssets.find(item => item.id === itemId)
+  if (stack.length && !stack[stack.length - 1].allowed.includes(item.id)) return {};
 
-  if (!stack.length && item.assetType !== 'base') return
-  if (stack.length > 6) return
+  const itemConfiguration = { 'Model': { assetId: item.id } };
 
-  if (stack.length && !stack[stack.length - 1].allowed.includes(item.id)) return
+  const baseMobileId = getNodeIdByQuery({ name: 'Base--Mobile' });
+  const lastStackItem = stack[stack.length - 1] || { sizes: {}, allowedPartials: {} };
 
-  const itemConfiguration = {
-    'Model': { assetId: item.id }
+  // check if stack row is complete
+  let isStackRowComplete = true;
+  if (item.allowedPartials) {
+    isStackRowComplete =
+      !!lastStackItem.allowedPartials
+      && lastStackItem.allowedPartials.includes(itemId) // check if we are allowed to add current itemId as a partial
+      && !lastStackItem.isStackRowComplete // check if last stack item is not partial
   }
-
-  const baseMobileId = getNodeIdByQuery({
-    name: 'Base--Mobile'
-  })
-
 
   const initialTranslation = {
-    x: 0,
-    y: 0 + stack.reduce((sum, cur) => sum + cur.sizes.y, 0),
+    x: isStackRowComplete ? item.sizes.x : 0, // add partial width to X axis
+    y: 0 + stack.reduce((sum, cur) => sum + +cur.isStackRowComplete * cur.sizes.y, 0), // add height if not isPartial, if partial - ignore adding height
     z: 0
   }
-
-  const nodeId = addModel(ITEM_MOBILE_ID, item.id, { translation: initialTranslation, configuration: itemConfiguration }, baseMobileId)
-
+  
+  const nodeId = addModel(ITEM_MOBILE_ID, item.id, { translation: initialTranslation, configuration: itemConfiguration }, baseMobileId);
   if (nodeId) {
-    stack.push({ ...item, nodeId })
-    if (item.assetType === 'base') {
-      await setSceneConfig({
-        'Is Mobile Storage Visible': false
-      })
-    }
-  }
-
-  return nodeId
+    stack.push({ ...item, nodeId, isStackRowComplete });
+    if (item.assetType === 'base') await setSceneConfig({ 'Is Mobile Storage Visible': false });
+  }  
+  return { nodeId, isStackRowComplete }
 }
 
 async function saveGlobalState(grid, stack, wallItems, mobileItems, configuratorView) {

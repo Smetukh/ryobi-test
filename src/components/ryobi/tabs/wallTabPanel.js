@@ -104,7 +104,7 @@ const CustomTabPanel = ({
                   }
                 }}
               />
-              <div className="base-item-overlay base-wall-item-overlay" onClick={handleMobileClick}>
+              <div className="base-item-overlay base-wall-item-overlay">
                 <div className="plus-add">
                   <AddIcon className="fa-plus" />
                 </div>

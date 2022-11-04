@@ -320,7 +320,7 @@ const products = [
     }
   },
   {
-    "id": "4f2bff27-8936-474e-9b74-e2a4a83e4869",
+    "id": "cffca302-8dd9-4a00-964c-c94478d0594f",
     "name": "STM 303",
     "metadata": {
       "nodeBounds": "{\"nodeXLength\":0.538, \"nodeYLength\": 0.145, \"nodeZLength\":0.307}"
@@ -330,13 +330,34 @@ const products = [
     ],
     "assetType": "item",
     "sizes": {
+      "x": 5,
+      "y": 4,
+      "hookOffsetX": 1,
+      "hookOffsetY": 1,
+      "hookX": 3,
+      "hookY": 2
+    },
+    "mobileAlternative": "4f2bff27-8936-474e-9b74-e2a4a83e4869"
+  },
+  {
+    "id": "ced08156-cdb4-4a4a-9d2e-3d21e3eae142",
+    "name": "STM 304",
+    "metadata": {
+      "nodeBounds": "{\"nodeXLength\":0.538, \"nodeYLength\": 0.145, \"nodeZLength\":0.307}"
+    },
+    "tags": [
+      "WallBuilder"
+    ],
+    "assetType": "item",
+    "sizes": {
       "x": 4,
-      "y": 1,
-      "hookOffsetX": 0,
-      "hookOffsetY": 0,
-      "hookX": 4,
+      "y": 2,
+      "hookOffsetX": 1,
+      "hookOffsetY": 1,
+      "hookX": 2,
       "hookY": 1
-    }
+    },
+    "mobileAlternative": "dc921c8d-561f-4b34-a76f-e2a0e75bf153"
   },
   // Phase 3 END
   {

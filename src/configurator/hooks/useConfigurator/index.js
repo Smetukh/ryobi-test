@@ -173,9 +173,14 @@ const useConfigurator = ({ itemsStore, playerStore, dataStore }) => {
   }
 
   const addMobileItemByIdWrapper = async (itemId) => {
-    const nodeId = await addMobileItemById(itemId, mobileAssets, stack.current)
+    const { nodeId, isStackRowComplete } = await addMobileItemById(itemId, mobileAssets, stack.current)
     if (nodeId) {
-      setMobileItems([...mobileItems, { itemId, nodeId, wallAlternative: mobileAssets.find(el => el.id === itemId).wallAlternative }])
+      setMobileItems([...mobileItems, {
+        itemId,
+        nodeId,
+        isStackRowComplete,
+        wallAlternative: mobileAssets.find(el => el.id === itemId).wallAlternative
+      }])
       return true
     } else {
       return false

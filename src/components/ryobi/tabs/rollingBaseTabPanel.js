@@ -36,7 +36,7 @@ const RollingBaseTabPanel = ({
             <h6 className="font-size-small  d-block col-sm-12 ">
               Rolling Base
             </h6>
-            <div className="base-mobile-item-container" onClick={handleMobileClick}>
+            <div className="base-mobile-item-container">
               <img src={rollingBase[0].imageName} alt="" className="100%" onClick={() => withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id))} />
               <div className="base-item-overlay base-mobile-item-overlay">
                 <div className="plus-add">
@@ -48,9 +48,7 @@ const RollingBaseTabPanel = ({
                   onClick={() => {
                     withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id));
                     setId(rollingBase[0].itemName);
-                    if (enabled) {
-                      setIntoNextStep();
-                    }
+                    if (enabled) setIntoNextStep();
                   }}
                   onDragStart={onDragStart}
                 />
@@ -78,7 +76,7 @@ const RollingBaseTabPanel = ({
                 </div>
               </div>
             </div>
-            <div className="base-mobile-item-container" onClick={handleMobileClick}>
+            <div className="base-mobile-item-container">
               <img src={rollingBase[1].imageName} alt="" className="100%" onClick={() => withMobileItemAddRejection(async () => addMobileItemById(rollingBase[1].id))} />
               <div className="base-item-overlay base-mobile-item-overlay">
                 <div className="plus-add">
@@ -126,19 +124,21 @@ const RollingBaseTabPanel = ({
             <div className="row  margin_removed pb-2">
               {!mobileItems.length && <div className="item-block-overlay">Please select the Base to get started with your Mobile Build.</div>}
               {rollingBaseItem.map((rolling, i) => {
-                let isAllowed;
-                const mobileTopProduct = mobileItems[mobileItems.length - 1]; // take last selected product
+                // check if item is allowed to be added on the top
+                let isAllowed = true;
+                const mobileTopProduct = mobileItems[mobileItems.length - 1]; // take the top product of selected items
                 if (mobileTopProduct) {
                   const mobileTopProductData = mobileAssets.find(i => i.id === mobileTopProduct.itemId);
-                  isAllowed = mobileTopProductData.allowed.includes(rolling.id); // check if other products are allowed to place on top of it
-                }
+                  isAllowed = mobileTopProductData.allowed.includes(rolling.id) // check if other products are allowed to place on top of it
+                    && (mobileTopProduct.isStackRowComplete || mobileTopProductData.allowedPartials?.includes(rolling.id)); // check if top row complete
+                }                
                 return (
                   <MobileItemContainer
                     isAllowed={isAllowed}
                     className="col-sm-4 col-6"
                     key={rolling.id}
                   >
-                    <ProductInfo className="product_info" isAllowed={isAllowed} onClick={handleMobileClick}>
+                    <ProductInfo className="product_info" isAllowed={isAllowed}>
                       <div className="plus-add">
                         <AddIcon className="fa-plus" />
                       </div>

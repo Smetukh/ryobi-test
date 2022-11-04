@@ -1,21 +1,15 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
 export default function FoundIssueModal({open, setOpen, messagePayload, isWelcome, setEnabled, fullHeightClick, isMobile }) {
-    // const [open, setOpen] = React.useState(false);
-    // const handleClickOpen = () => {
-    //     setOpen(true);
-    // };
-
     const [checked, setChecked] = React.useState(false)
     const handleClose = () => {
         setOpen(false);
         if (!checked) {
             !!isMobile && fullHeightClick();
-            setEnabled(true);
+            if (typeof setEnabled === 'function') setEnabled(true);
         } else {
             localStorage.setItem('showTour', !checked);
         }
