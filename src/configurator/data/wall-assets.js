@@ -350,12 +350,12 @@ const products = [
     ],
     "assetType": "item",
     "sizes": {
-      "x": 4,
-      "y": 2,
+      "x": 2,
+      "y": 4,
       "hookOffsetX": 1,
       "hookOffsetY": 1,
       "hookX": 2,
-      "hookY": 1
+      "hookY": 2
     },
     "mobileAlternative": "dc921c8d-561f-4b34-a76f-e2a0e75bf153"
   },
