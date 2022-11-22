@@ -51,7 +51,7 @@ const RollingBaseTabPanel = ({
               learn,
               buy,
             }) => (
-              <div className="base-mobile-item-container">
+              <div key={id} className="base-mobile-item-container">
                 <img
                   src={imageName}
                   alt=""
@@ -76,6 +76,7 @@ const RollingBaseTabPanel = ({
                       setId(itemName);
                       if (enabled) setIntoNextStep();
                     }}
+                    id={id}
                     onDragStart={onDragStart}
                   />
                   <div className="cardButtons">

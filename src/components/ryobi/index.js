@@ -218,7 +218,8 @@ export default function Ryobi() {
     const productId = event.target.id;
     const data = JSON.stringify({ productId });
     
-    if (!!productId) !value ? highlightAvailableRails(productId) : highlightMobileItemById();
+    // skip for rolling bases
+    if (!rollingBase.find(i => i.id === productId)) !value ? highlightAvailableRails(productId) : highlightMobileItemById();
 
     event.dataTransfer.setData('data', data);
     event.dataTransfer.setDragImage(event.target, (0.5 * event.target.clientWidth), (0.5 * event.target.clientWidth));
@@ -236,7 +237,7 @@ export default function Ryobi() {
     if (value === 0) { // drop wall item
       !!productId ? withWallItemAddRejection(async () => addWallItemById(productId)) : withWallItemAddRejection(async () => addWallRail());
     } else if (value === 1) { // drop rolling base product
-      !!productId ? withMobileItemAddRejection(async () => addMobileItemById(productId)) : withMobileItemAddRejection(async () => addMobileItemById(rollingBase[0].id));
+      withMobileItemAddRejection(async () => addMobileItemById(productId))
     }
     onDropAny();
   }
