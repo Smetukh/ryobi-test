@@ -58,7 +58,7 @@ const RollingBaseTabPanel = ({
                   className="100%"
                   onClick={() =>
                     withMobileItemAddRejection(async () =>
-                      addMobileItemById(rollingBase[0].id)
+                      addMobileItemById(id)
                     )
                   }
                 />
