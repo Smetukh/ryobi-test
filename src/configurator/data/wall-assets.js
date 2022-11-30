@@ -350,7 +350,7 @@ const products = [
     ],
     "assetType": "item",
     "sizes": {
-      "x": 2,
+      "x": 3,
       "y": 4,
       "hookOffsetX": 1,
       "hookOffsetY": 1,
